@@ -10,18 +10,40 @@
 
 @interface ViewController ()
 
+@property (nonatomic, strong) WKWebView *webView;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    
+//    _webView = [[WKWebView alloc] initWithFrame:CGRectMake(self.view.center.x, self.view.center.y, self.view.frame.size.width, self.view.frame.size.height) configuration:<#(WKWebViewConfiguration *)#>
+    
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)viewWillAppear:(BOOL)animated
+{
+//    [self presentViewController:nil animated:YES completion:^{
+//        //
+//    }];
+    
+    
+    
+    [UIView animateWithDuration:1.0 delay:0.5
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         [[self view] addSubview:_webView];
+                         
+                     } completion:^(BOOL finished) {
+                         
+                     }];
+    
+    
 }
 
 @end

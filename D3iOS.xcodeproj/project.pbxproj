@@ -14,6 +14,9 @@
 		38D94C711A439E3400BC3668 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38D94C701A439E3400BC3668 /* Images.xcassets */; };
 		38D94C741A439E3400BC3668 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38D94C721A439E3400BC3668 /* LaunchScreen.xib */; };
 		38D94C801A439E3400BC3668 /* D3iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D94C7F1A439E3400BC3668 /* D3iOSTests.m */; };
+		38D94C8E1A439FCA00BC3668 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D94C8D1A439FCA00BC3668 /* WebKit.framework */; };
+		38D94C911A43A24E00BC3668 /* WebKitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D94C901A43A24E00BC3668 /* WebKitController.m */; };
+		38D94C931A43AB4200BC3668 /* d3.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 38D94C921A43AB4200BC3668 /* d3.min.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,10 @@
 		38D94C791A439E3400BC3668 /* D3iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = D3iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38D94C7E1A439E3400BC3668 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38D94C7F1A439E3400BC3668 /* D3iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = D3iOSTests.m; sourceTree = "<group>"; };
+		38D94C8D1A439FCA00BC3668 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		38D94C8F1A43A24E00BC3668 /* WebKitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebKitController.h; sourceTree = "<group>"; };
+		38D94C901A43A24E00BC3668 /* WebKitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebKitController.m; sourceTree = "<group>"; };
+		38D94C921A43AB4200BC3668 /* d3.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = d3.min.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38D94C8E1A439FCA00BC3668 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +71,7 @@
 		38D94C571A439E3300BC3668 = {
 			isa = PBXGroup;
 			children = (
+				38D94C8D1A439FCA00BC3668 /* WebKit.framework */,
 				38D94C621A439E3400BC3668 /* D3iOS */,
 				38D94C7C1A439E3400BC3668 /* D3iOSTests */,
 				38D94C611A439E3400BC3668 /* Products */,
@@ -83,9 +92,9 @@
 			children = (
 				38D94C671A439E3400BC3668 /* AppDelegate.h */,
 				38D94C681A439E3400BC3668 /* AppDelegate.m */,
-				38D94C6A1A439E3400BC3668 /* ViewController.h */,
-				38D94C6B1A439E3400BC3668 /* ViewController.m */,
-				38D94C6D1A439E3400BC3668 /* Main.storyboard */,
+				38D94C8A1A439F4B00BC3668 /* Model */,
+				38D94C891A439F3C00BC3668 /* Controller */,
+				38D94C8B1A439F5700BC3668 /* View */,
 				38D94C701A439E3400BC3668 /* Images.xcassets */,
 				38D94C721A439E3400BC3668 /* LaunchScreen.xib */,
 				38D94C631A439E3400BC3668 /* Supporting Files */,
@@ -96,6 +105,7 @@
 		38D94C631A439E3400BC3668 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				38D94C921A43AB4200BC3668 /* d3.min.js */,
 				38D94C641A439E3400BC3668 /* Info.plist */,
 				38D94C651A439E3400BC3668 /* main.m */,
 			);
@@ -117,6 +127,40 @@
 				38D94C7E1A439E3400BC3668 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		38D94C891A439F3C00BC3668 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				38D94C8C1A439F8500BC3668 /* D3Controller */,
+				38D94C6A1A439E3400BC3668 /* ViewController.h */,
+				38D94C6B1A439E3400BC3668 /* ViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		38D94C8A1A439F4B00BC3668 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		38D94C8B1A439F5700BC3668 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				38D94C6D1A439E3400BC3668 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		38D94C8C1A439F8500BC3668 /* D3Controller */ = {
+			isa = PBXGroup;
+			children = (
+				38D94C8F1A43A24E00BC3668 /* WebKitController.h */,
+				38D94C901A43A24E00BC3668 /* WebKitController.m */,
+			);
+			name = D3Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38D94C6F1A439E3400BC3668 /* Main.storyboard in Resources */,
+				38D94C931A43AB4200BC3668 /* d3.min.js in Resources */,
 				38D94C741A439E3400BC3668 /* LaunchScreen.xib in Resources */,
 				38D94C711A439E3400BC3668 /* Images.xcassets in Resources */,
 			);
@@ -222,6 +267,7 @@
 				38D94C6C1A439E3400BC3668 /* ViewController.m in Sources */,
 				38D94C691A439E3400BC3668 /* AppDelegate.m in Sources */,
 				38D94C661A439E3400BC3668 /* main.m in Sources */,
+				38D94C911A43A24E00BC3668 /* WebKitController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
