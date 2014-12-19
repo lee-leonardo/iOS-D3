@@ -71,7 +71,7 @@
 		38D94C571A439E3300BC3668 = {
 			isa = PBXGroup;
 			children = (
-				38D94C8D1A439FCA00BC3668 /* WebKit.framework */,
+				38D94C961A43AF0700BC3668 /* Framework */,
 				38D94C621A439E3400BC3668 /* D3iOS */,
 				38D94C7C1A439E3400BC3668 /* D3iOSTests */,
 				38D94C611A439E3400BC3668 /* Products */,
@@ -161,6 +161,14 @@
 				38D94C901A43A24E00BC3668 /* WebKitController.m */,
 			);
 			name = D3Controller;
+			sourceTree = "<group>";
+		};
+		38D94C961A43AF0700BC3668 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				38D94C8D1A439FCA00BC3668 /* WebKit.framework */,
+			);
+			name = Framework;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,7 +399,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = D3iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -401,7 +411,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = D3iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

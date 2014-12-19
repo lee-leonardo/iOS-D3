@@ -6,14 +6,28 @@
 //  Copyright (c) 2014 Leonardo Lee. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <WebKit/WebKit.h>
+#import <UIKit/UIKit.h>
 
-@interface WebKitController : NSObject
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_8_0
+#import <WebKit/WebKit.h>
+@interface WebKitController : NSObject <WKScriptMessageHandler>
 
 @property (nonatomic, strong) WKWebViewConfiguration *config;
+@property (nonatomic, strong) WKUserContentController *contentController;
+@property (nonatomic, strong) WKUserScript *d3script;
 
 
 +(id)sharedInstance;
 
 @end
+
+#else
+@interface WebKitController : NSObject
+
++(id)sharedInstance;
+
+@end
+#endif
+
+
+

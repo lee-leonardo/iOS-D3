@@ -7,10 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "WebKitController.h"
 
 @interface ViewController ()
 
-@property (nonatomic, strong) WKWebView *webView;
+@property (nonatomic, strong) WebKitController *wkController;
 
 @end
 
@@ -19,30 +20,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    
-//    _webView = [[WKWebView alloc] initWithFrame:CGRectMake(self.view.center.x, self.view.center.y, self.view.frame.size.width, self.view.frame.size.height) configuration:<#(WKWebViewConfiguration *)#>
-    
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_8_0
+#else
+#endif
+
     
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-//    [self presentViewController:nil animated:YES completion:^{
-//        //
-//    }];
+        
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_8_0
+        WKWebView *wkWebView = [[WKWebView alloc] initWithFrame:CGRectMake(10.0, 10.0, self.view.frame.size.width - 20, self.view.frame.size.height - 20) configuration:_wkController.config];
+        
+        wkWebView.UIDelegate = self;
+        wkWebView.navigationDelegate = self;
     
     
+    [self.view addSubview:wkWebView];
     
-    [UIView animateWithDuration:1.0 delay:0.5
-                        options:UIViewAnimationOptionCurveEaseInOut
-                     animations:^{
-                         [[self view] addSubview:_webView];
-                         
-                     } completion:^(BOOL finished) {
-                         
-                     }];
     
+#else
+    
+    //UIWebView
+    
+#endif
     
 }
 
