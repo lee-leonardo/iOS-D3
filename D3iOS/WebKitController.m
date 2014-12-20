@@ -8,6 +8,10 @@
 
 #import "WebKitController.h"
 
+
+NSString * const D3IOS_APPURL = @"d3ios";
+
+
 @interface WebKitController ()
 
 @end
@@ -16,7 +20,7 @@
 
 +(id)sharedInstance
 {
-    static WebKitController *sharedWebKitController;
+    static WebKitController *sharedWebKitController; //= nil;
     static dispatch_once_t webkitToken;
     
     dispatch_once(&webkitToken, ^{
@@ -36,22 +40,10 @@
         _contentController = [[WKUserContentController alloc] init];
         
         [self setupD3];
-        
-        
-        //        *connected = ;
-        
-        //        if (connected) {
-        //            [NSURL URLWithString:@"http://d3js.org/d3.v3.min.js"];
-        //        }
-        
-        //        _contentController addScriptMessageHandler:<#(id<WKScriptMessageHandler>)#> name:<#(NSString *)#>
-        
-        
-        
-        
-        
-        
 #else
+        
+        
+        
 #endif
     }
     return self;
@@ -65,19 +57,45 @@
 {
     NSString *source = [[NSString alloc] init];
     
+    //Check if on wifi, if on wifi download the latest version of D3
+    //If I have time save to disk (overwrite)?
+    //        if (connected) {
+    //            [NSURL URLWithString:@"http://d3js.org/d3.v3.min.js"];
+    //        }
+    
     _d3script = [[WKUserScript alloc] initWithSource:source injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:NO];
     
     [_contentController addUserScript:_d3script];
 }
 
-#pragma mark - WKWebView
+#pragma mark - Adding User Scripts
+-(void)addUserScriptsToContentController:(WKUserScript *)userScript
+{
+    [_contentController addUserScript:userScript];
+}
+
+-(WKUserScript *)createUserScriptWithPath:(NSString *)path andType:(NSString *)type
+{
+    
+    NSString *source = [[NSString alloc] init]; //This is actually where I need to call an initWithURL...
+    
+    WKUserScript *userScript = [[WKUserScript alloc] initWithSource:source injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:NO];
+    
+//    NSString *contents = [NSString
+    
+    
+    return userScript;
+}
+
+#pragma mark - WKScriptMessageHandler
+//This is for code injection and the notification of events + what to do with new events.
+//Received messages are received as JSON and converted to ObjC Types.
+
 -(void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message
 {
     
 }
-#else
-
-
+//#else
 #endif
 
 @end

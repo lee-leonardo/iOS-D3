@@ -14,7 +14,7 @@
 
 @end
 #else
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UIWebViewDelegate>
 
 @end
 

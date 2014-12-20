@@ -8,3 +8,16 @@ The goal of this is to produce something pretty lightweight and can serve a bunc
 I am going to be doing this is both UIWebView (pre-iOS8) and with WKWebView for (post-iOS8).
 
 I am going to try to make this project reusable as possible. WKWebView is not well documented, and I believe having a good example (possible Framework in the future) will be beneficial to all.
+
+
+
+##To avoid performance issues##
+According to this [article](http://marmelab.com/blog/2013/07/01/building-sophisticated-webapps-for-mobile-a-bumpy-ride.html), the performance his is because of redrawing.
+This can be avoided by using HTML rather than SVGs.
+
+
+
+##Work used to create this##
+* [WebViewJavascriptBridge](https://github.com/marcuswestin/WebViewJavascriptBridge) (Supports both WebKit and UIWebView).
+* [NodObjC](https://github.com/TooTallNate/NodObjC),  
+    * [Neunode](https://github.com/snakajima/neunode), too focused on the 'server' for this project, but would love to play with it.

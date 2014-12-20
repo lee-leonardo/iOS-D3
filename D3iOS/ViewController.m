@@ -11,8 +11,6 @@
 
 @interface ViewController ()
 
-@property (nonatomic, strong) WebKitController *wkController;
-
 @end
 
 @implementation ViewController
@@ -31,10 +29,17 @@
 {
         
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_8_0
-        WKWebView *wkWebView = [[WKWebView alloc] initWithFrame:CGRectMake(10.0, 10.0, self.view.frame.size.width - 20, self.view.frame.size.height - 20) configuration:_wkController.config];
-        
+    WebKitController *wkController = [WebKitController sharedInstance];
+    
+        WKWebView *wkWebView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:wkController.config];
+    
         wkWebView.UIDelegate = self;
         wkWebView.navigationDelegate = self;
+    
+//    wkWebView.title
+//    wkWebView.URL
+//    wkWebView.loading
+//    wkWebView.estimatedProgress
     
     
     [self.view addSubview:wkWebView];
@@ -42,10 +47,59 @@
     
 #else
     
-    //UIWebView
+    UIWebView *uiWebView = [[UIWebView alloc] init];
+    uiWebView.delegate = _wkController;
+    
+    NSURLRequest *request = [[NSURLRequest alloc] init];
+    [uiWeView loadRequest: request];
+    
     
 #endif
     
 }
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_8_0
+//Where the App 'injects' itself.
+-(void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
+{
+    //Handle navigation actions...
+    switch (navigationAction.navigationType) {
+        case WKNavigationTypeReload:
+            //
+            break;
+            
+        case WKNavigationTypeFormResubmitted:
+        case WKNavigationTypeFormSubmitted:
+            //
+            break;
+            
+        default:
+            break;
+    }
+    
+    
+    
+}
+
+-(void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler
+{
+    //Handle Reponse
+}
+
+#else
+
+- (BOOL)webView:(UIWebView *)webView
+shouldStartLoadWithRequest:(NSURLRequest *)request
+ navigationType:(UIWebViewNavigationType)navigationType
+{
+    
+}
+
+#endif
+
+
+
+
+
 
 @end
