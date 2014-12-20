@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_8_0
 #import <WebKit/WebKit.h>
 @interface WebKitController : NSObject <WKScriptMessageHandler>
 
@@ -20,14 +18,3 @@
 +(id)sharedInstance;
 
 @end
-
-#else
-@interface WebKitController : NSObject
-
-+(id)sharedInstance;
-
-@end
-#endif
-
-
-

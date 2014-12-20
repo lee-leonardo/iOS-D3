@@ -17,7 +17,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    _wkController = [WebKitController sharedInstance];
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_8_0
+    
+#else
+#endif
+    
+    if ([[[UIDevice currentDevice] systemVersion] compare:@"8.0.0" options:NSNumericSearch]) {
+        _wkController = [WebKitController sharedInstance];
+
+        
+        
+//        self.window.rootViewController
+        
+    }
+    
     
     return YES;
 }

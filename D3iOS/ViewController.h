@@ -8,17 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_8_0
-#import <WebKit/WebKit.h>
-@interface ViewController : UIViewController <WKNavigationDelegate, WKUIDelegate>
-
-@end
-#else
 @interface ViewController : UIViewController <UIWebViewDelegate>
 
 @end
-
-#endif
-
-
-

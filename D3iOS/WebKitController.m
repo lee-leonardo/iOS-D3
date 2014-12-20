@@ -81,7 +81,7 @@ NSString * const D3IOS_APPURL = @"d3ios";
         }];
     }
     
-    _d3script = [[WKUserScript alloc] initWithSource:d3filePath injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:NO];
+    _d3script = [[WKUserScript alloc] initWithSource:d3filePath injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:YES];
     
     [_contentController addUserScript:_d3script];
 }

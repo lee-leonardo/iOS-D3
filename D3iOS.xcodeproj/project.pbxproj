@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38BCC0AE1A4575A80018406C /* WKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BCC0AD1A4575A80018406C /* WKViewController.m */; };
 		38D94C661A439E3400BC3668 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D94C651A439E3400BC3668 /* main.m */; };
 		38D94C691A439E3400BC3668 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D94C681A439E3400BC3668 /* AppDelegate.m */; };
 		38D94C6C1A439E3400BC3668 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D94C6B1A439E3400BC3668 /* ViewController.m */; };
@@ -30,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		38BCC0AC1A4575A80018406C /* WKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKViewController.h; sourceTree = "<group>"; };
+		38BCC0AD1A4575A80018406C /* WKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKViewController.m; sourceTree = "<group>"; };
 		38D94C601A439E3400BC3668 /* D3iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = D3iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38D94C641A439E3400BC3668 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38D94C651A439E3400BC3668 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -135,6 +138,8 @@
 				38D94C8C1A439F8500BC3668 /* D3Controller */,
 				38D94C6A1A439E3400BC3668 /* ViewController.h */,
 				38D94C6B1A439E3400BC3668 /* ViewController.m */,
+				38BCC0AC1A4575A80018406C /* WKViewController.h */,
+				38BCC0AD1A4575A80018406C /* WKViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38BCC0AE1A4575A80018406C /* WKViewController.m in Sources */,
 				38D94C6C1A439E3400BC3668 /* ViewController.m in Sources */,
 				38D94C691A439E3400BC3668 /* AppDelegate.m in Sources */,
 				38D94C661A439E3400BC3668 /* main.m in Sources */,
@@ -472,6 +478,7 @@
 				38D94C851A439E3400BC3668 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		38D94C861A439E3400BC3668 /* Build configuration list for PBXNativeTarget "D3iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -480,6 +487,7 @@
 				38D94C881A439E3400BC3668 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
