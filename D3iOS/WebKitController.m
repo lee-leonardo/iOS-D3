@@ -8,9 +8,7 @@
 
 #import "WebKitController.h"
 
-
-NSString * const D3IOS_APPURL = @"d3ios";
-
+//NSString * const D3IOS_APPURL = @"d3ios";
 
 @interface WebKitController () <NSURLSessionDelegate>
 
@@ -46,42 +44,42 @@ NSString * const D3IOS_APPURL = @"d3ios";
         //Customize Session
         
         _wkSession = [NSURLSession sessionWithConfiguration:_wkSessionConfig delegate:self delegateQueue:_wkQueue];
-        
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_8_0
-        
         _contentController = [[WKUserContentController alloc] init];
         
-        [self setupD3];
-#else
-        
-        
-        
-#endif
+        [self setupWebView];
     }
     return self;
 }
 
-
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_8_0
-
 #pragma mark - Setup
+-(void)setupWebView
+{
+    [self setupD3];
+    
+//    WKUserScript *sampleScript = [WKUserScript alloc] initWithSource:<#(NSString *)#> injectionTime:<#(WKUserScriptInjectionTime)#> forMainFrameOnly:<#(BOOL)#>
+//    [self addUserScriptsToContentController:<#(WKUserScript *)#>];
+    
+    //You may add other Scripts Here.
+}
+
 -(void)setupD3
 {
-    
     //Will replace this with a future. The future will be used to handle the updates from the server as well?
-    NSString *d3filePath = [[NSBundle mainBundle] pathForResource:@"d3.min.js" ofType:@"js"];
     
-    BOOL connected = NO; //This will be a Bool that returns when wifi is available.
+    NSString *d3Lib = [NSString stringWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"d3.min" withExtension:@".js"] encoding:NSUTF8StringEncoding error:NULL];
+    
+    _d3script = [[WKUserScript alloc] initWithSource:d3Lib injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:YES];
+    
+    BOOL connected = NO; //Going to make this a request to D3 to pull a newer version of D3.js to replace the overwrite the older one.
     if (connected) {
         NSURL *d3url = [[NSURL alloc] initWithString:@"http://d3js.org/d3.v3.min.js"];
         NSURLRequest *d3request = [NSURLRequest requestWithURL:d3url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5.0];
         
         [_wkSession downloadTaskWithRequest:d3request completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
-            //This is where D3 will be loaded into the future.
+            //This is where D3 from the Web will be loaded into the future.
         }];
     }
-    
-    _d3script = [[WKUserScript alloc] initWithSource:d3filePath injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:YES];
+    NSLog(@"D3 File: %@", _d3script.source);
     
     [_contentController addUserScript:_d3script];
 }
@@ -99,9 +97,6 @@ NSString * const D3IOS_APPURL = @"d3ios";
     
     WKUserScript *userScript = [[WKUserScript alloc] initWithSource:source injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:NO];
     
-//    NSString *contents = [NSString
-    
-    
     return userScript;
 }
 
@@ -113,7 +108,5 @@ NSString * const D3IOS_APPURL = @"d3ios";
 {
     
 }
-//#else
-#endif
 
 @end

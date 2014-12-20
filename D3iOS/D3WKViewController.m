@@ -6,16 +6,16 @@
 //  Copyright (c) 2014 Leonardo Lee. All rights reserved.
 //
 
-#import "WKViewController.h"
+#import "D3WKViewController.h"
 #import "WebKitController.h"
 
-@interface WKViewController ()
+@interface D3WKViewController ()
 
 @property (nonatomic, strong) WKWebView *webView;
 
 @end
 
-@implementation WKViewController
+@implementation D3WKViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,6 +41,8 @@
 
 #pragma mark - WKWebView
 //Where the App 'injects' itself.
+
+#pragma mark Navigation Actions
 -(void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
 {
     //Handle navigation actions...
@@ -57,15 +59,12 @@
         default:
             break;
     }
-    
-    
-    
 }
 
+#pragma mark Navigation Responses
 -(void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler
 {
     //Handle Reponse
 }
-
 
 @end

@@ -7,6 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import "D3WKViewController.h"
+
+/*
+ #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_8_0
+ #else
+ #endif
+ */
 
 @interface AppDelegate ()
 
@@ -17,18 +24,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_8_0
-    
-#else
-#endif
-    
     if ([[[UIDevice currentDevice] systemVersion] compare:@"8.0.0" options:NSNumericSearch]) {
         _wkController = [WebKitController sharedInstance];
 
+        D3WKViewController * wkView = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"WK_View_Controller"];
+        self.window.rootViewController = wkView;
         
-        
-//        self.window.rootViewController
-        
+    } else {
+        //Runs Normally
     }
     
     
