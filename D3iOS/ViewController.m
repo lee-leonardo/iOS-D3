@@ -30,11 +30,10 @@
         
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_8_0
     WebKitController *wkController = [WebKitController sharedInstance];
-    
-        WKWebView *wkWebView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:wkController.config];
-    
-        wkWebView.UIDelegate = self;
-        wkWebView.navigationDelegate = self;
+    WKWebView *wkWebView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:wkController.config];
+
+    wkWebView.UIDelegate = self;
+    wkWebView.navigationDelegate = self;
     
 //    wkWebView.title
 //    wkWebView.URL
