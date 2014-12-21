@@ -37,6 +37,14 @@
     self = [super init];
     if (self) {
         
+        _config = [[WKWebViewConfiguration alloc] init];
+//        _config.preferences
+//        _config.processPool
+        
+        _contentController = [[WKUserContentController alloc] init];
+        _config.userContentController = _contentController;
+        
+        
         _wkQueue = [[NSOperationQueue alloc] init];
         _wkQueue.qualityOfService = NSOperationQualityOfServiceUserInitiated;
         
@@ -44,7 +52,6 @@
         //Customize Session
         
         _wkSession = [NSURLSession sessionWithConfiguration:_wkSessionConfig delegate:self delegateQueue:_wkQueue];
-        _contentController = [[WKUserContentController alloc] init];
         
         [self setupWebView];
     }
@@ -60,6 +67,7 @@
 //    [self addUserScriptsToContentController:<#(WKUserScript *)#>];
     
     //You may add other Scripts Here.
+    //Target to get: http://bl.ocks.org/mbostock/4061502
 }
 
 -(void)setupD3
@@ -75,11 +83,30 @@
         NSURL *d3url = [[NSURL alloc] initWithString:@"http://d3js.org/d3.v3.min.js"];
         NSURLRequest *d3request = [NSURLRequest requestWithURL:d3url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5.0];
         
-        [_wkSession downloadTaskWithRequest:d3request completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
-            //This is where D3 from the Web will be loaded into the future.
-        }];
+        //GET request, this should pull down a copy of the repo.
+        [[self.wkSession dataTaskWithRequest:d3request
+                          completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            if (error) {
+                NSLog(@"Error %@", error.localizedDescription);
+            } else {
+                if ([response respondsToSelector:@selector(statusCode)]) {
+                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+                    NSInteger responseCode = [httpResponse statusCode];
+                    switch (responseCode) {
+                        case 200:
+                            //Handle Script Creation.
+                            NSLog(@"Data: %@", data);
+                            break;
+                            
+                        default:
+                            break;
+                    }
+                    
+                }
+            }
+        }] resume];
     }
-    NSLog(@"D3 File: %@", _d3script.source);
+//    NSLog(@"D3 File: %@", _d3script.source);
     
     [_contentController addUserScript:_d3script];
 }
@@ -90,15 +117,50 @@
     [_contentController addUserScript:userScript];
 }
 
--(WKUserScript *)createUserScriptWithPath:(NSString *)path andType:(NSString *)type
+-(void)addUserScriptsToContentController:(WKUserScript *)userScript withMessageHander:(NSString *)handlerName
 {
+    [_contentController addUserScript:userScript];
     
-    NSString *source = [[NSString alloc] init]; //This is actually where I need to call an initWithURL...
+    //This is the way to register the types of messages that will be received by the app.
+    [_contentController addScriptMessageHandler:self name:handlerName];
     
-    WKUserScript *userScript = [[WKUserScript alloc] initWithSource:source injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:NO];
-    
-    return userScript;
 }
+
+//-(WKUserScript *)downloadScriptFromURL:(NSURL *)url
+//{
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//    
+//    NSURLSessionDataTask *d3FetchRequest = [self.wkSession dataTaskWithRequest:request
+//                                                             completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+//                                                                 if (error) {
+//                                                                     NSLog(@"Error %@", error.localizedDescription);
+//                                                                 } else {
+//                                                                     if ([response respondsToSelector:@selector(statusCode)]) {
+//                                                                         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+//                                                                         NSInteger responseCode = [httpResponse statusCode];
+//                                                                         switch (responseCode) {
+//                                                                             case 200:
+//                                                                                 //
+//                                                                                 break;
+//                                                                                 
+//                                                                             default:
+//                                                                                 break;
+//                                                                         }
+//                                                                         
+//                                                                     }
+//                                                                 }
+//                                                                 
+//                                                                 NSLog(@"Response: %@", response);
+//                                                             }];
+//    [d3FetchRequest resume];
+//}
+
+//-(WKUserScript *)createUserScriptWithPath:(NSString *)path andType:(NSString *)type
+//{
+//    NSString *source = [[NSString alloc] init]; //This is actually where I need to call an initWithURL...
+//    WKUserScript *userScript = [[WKUserScript alloc] initWithSource:source injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:NO];
+//    return userScript;
+//}
 
 #pragma mark - WKScriptMessageHandler
 //This is for code injection and the notification of events + what to do with new events.
@@ -106,7 +168,7 @@
 
 -(void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message
 {
-    
+    //Use the message.name property to figure out which message has been received.
 }
 
 @end
