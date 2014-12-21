@@ -57,6 +57,10 @@
 }
 
 #pragma mark - Setup
+/*
+    Scripts can be injected in the ViewController, code inject during this step would be code that needs to be in the WebView prior to the loading of the WebView.
+ */
+
 -(void)setupWebView
 {
     [self setupD3];
@@ -79,7 +83,7 @@
     _d3script = [[WKUserScript alloc] initWithSource:d3Lib injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:YES];
     
     //This code allows one to make a request to the internet and download the latest copy of D3.
-    BOOL connected = YES;
+    BOOL connected = YES; //I am thinking of changing this so that it will only run when on WiFi.
     if (connected) {
         NSURL *d3url = [[NSURL alloc] initWithString:D3_MIN_URL];
         NSURLRequest *d3request = [NSURLRequest requestWithURL:d3url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5.0];
@@ -133,49 +137,90 @@
     
 }
 
-//-(WKUserScript *)downloadScriptFromURL:(NSURL *)url
-//{
-//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//    
-//    NSURLSessionDataTask *d3FetchRequest = [self.wkSession dataTaskWithRequest:request
-//                                                             completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-//                                                                 if (error) {
-//                                                                     NSLog(@"Error %@", error.localizedDescription);
-//                                                                 } else {
-//                                                                     if ([response respondsToSelector:@selector(statusCode)]) {
-//                                                                         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-//                                                                         NSInteger responseCode = [httpResponse statusCode];
-//                                                                         switch (responseCode) {
-//                                                                             case 200:
-//                                                                                 //
-//                                                                                 break;
-//                                                                                 
-//                                                                             default:
-//                                                                                 break;
-//                                                                         }
-//                                                                         
-//                                                                     }
-//                                                                 }
-//                                                                 
-//                                                                 NSLog(@"Response: %@", response);
-//                                                             }];
-//    [d3FetchRequest resume];
-//}
+-(void)downloadScriptFromURL:(NSURL *)url
+{
+    /*
+     While using this method, besure to add the message to be required method of the WKScriptMessageHandler protocol.
+     */
+    
+    __block NSString *scriptString;
+    __block WKUserScript *userScript;
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    NSURLSessionDataTask *d3FetchRequest = [self.wkSession dataTaskWithRequest:request
+                                                             completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                                 if (error) {
+                                                                     NSLog(@"Error %@", error.localizedDescription);
+                                                                 } else {
+                                                                     if ([response respondsToSelector:@selector(statusCode)]) {
+                                                                         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+                                                                         NSInteger responseCode = [httpResponse statusCode];
+                                                                         switch (responseCode) {
+                                                                             case 200:
+                                                                                 scriptString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                                                                 userScript = [[WKUserScript alloc] initWithSource:scriptString injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:NO];
+                                                                                 
+                                                                                 [self addUserScriptToContentController:userScript];
+                                                                                 break;
+                                                                                 
+                                                                             default:
+                                                                                 break;
+                                                                         }
+                                                                     }
+                                                                 }
+                                                                 NSLog(@"Response: %@", response);
+                                                             }];
+    [d3FetchRequest resume];
+}
 
-//-(WKUserScript *)createUserScriptWithPath:(NSString *)path andType:(NSString *)type
-//{
-//    NSString *source = [[NSString alloc] init]; //This is actually where I need to call an initWithURL...
-//    WKUserScript *userScript = [[WKUserScript alloc] initWithSource:source injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:NO];
-//    return userScript;
-//}
+-(void)downloadScriptFromURL:(NSURL *)url withMessageHandler:(NSString *)messageName
+{
+    /*
+        While using this method, besure to add the message to be required method of the WKScriptMessageHandler protocol.
+     */
+    
+    __block NSString *scriptString;
+    __block WKUserScript *userScript;
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    NSURLSessionDataTask *d3FetchRequest = [self.wkSession dataTaskWithRequest:request
+                                                             completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                                 if (error) {
+                                                                     NSLog(@"Error %@", error.localizedDescription);
+                                                                 } else {
+                                                                     if ([response respondsToSelector:@selector(statusCode)]) {
+                                                                         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+                                                                         NSInteger responseCode = [httpResponse statusCode];
+                                                                         switch (responseCode) {
+                                                                             case 200:
+                                                                                 scriptString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                                                                 userScript = [[WKUserScript alloc] initWithSource:scriptString injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:NO];
+                                                                                 
+                                                                                 [self addUserScriptToContentController:userScript withMessageHander:messageName];
+                                                                                 break;
+                                                                                 
+                                                                             default:
+                                                                                 break;
+                                                                         }
+                                                                     }
+                                                                 }
+                                                                 NSLog(@"Response: %@", response);
+                                                             }];
+    [d3FetchRequest resume];
+}
 
 #pragma mark - WKScriptMessageHandler
-//This is for code injection and the notification of events + what to do with new events.
-//Received messages are received as JSON and converted to ObjC Types.
-
+/*
+    The WKContentController is what handles the messages to and from a WKWebView.
+    This is for code injection and the notification of events + what to do with new events. Received messages are received as JSON and converted to ObjC Types.
+ */
 -(void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message
 {
     //Use the message.name property to figure out which message has been received.
+    //message.webView is the related WebView.
+    //message.body is a JSON object.
 }
 
 @end
