@@ -8,8 +8,6 @@
 
 #import "WebKitController.h"
 
-//NSString * const D3IOS_APPURL = @"d3ios";
-
 @interface WebKitController () <NSURLSessionDelegate>
 
 @property (nonatomic, strong) NSURLSessionConfiguration *wkSessionConfig;
@@ -80,7 +78,7 @@
     
     BOOL connected = NO; //Going to make this a request to D3 to pull a newer version of D3.js to replace the overwrite the older one.
     if (connected) {
-        NSURL *d3url = [[NSURL alloc] initWithString:@"http://d3js.org/d3.v3.min.js"];
+        NSURL *d3url = [[NSURL alloc] initWithString:D3_MIN_URL];
         NSURLRequest *d3request = [NSURLRequest requestWithURL:d3url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5.0];
         
         //GET request, this should pull down a copy of the repo.

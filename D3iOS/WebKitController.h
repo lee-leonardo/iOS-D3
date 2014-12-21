@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
+#import "Constants.h"
 
 @interface WebKitController : NSObject <WKScriptMessageHandler>
 
