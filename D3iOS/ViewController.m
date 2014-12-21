@@ -44,6 +44,11 @@
     NSString *index = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"];
     NSURL *startPage = [NSURL fileURLWithPath:index];
     [_webView loadHTMLString:@"index.html" baseURL:startPage];
+    
+    /*
+        An alternate way:
+        [_webView loadHTMLString:@"" baseURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] resourcePath]]];
+     */
 }
 
 #pragma mark Listener

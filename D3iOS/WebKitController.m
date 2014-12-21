@@ -71,17 +71,23 @@
 -(void)setupD3
 {
 /*
-    This is going to be interesting. I added the D3 into WKWebView, but it will also be imported by the index.html file that we will use to setup the front-end webpage (might be more performant even with a slightly bigger memory footprint?). Although it probably will not matter. Having a copy of d3 on hand within the _contentController will allow the WKWebView to 'understand' other script better?
+    Adds D3 to the WKWebView. It first pulls a copy of it from disk, then replaces it with one from the web.
  */
 
-    NSString *d3Lib = [NSString stringWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"d3.min" withExtension:@".js"] encoding:NSUTF8StringEncoding error:NULL];
+    __block NSString *d3Lib = [NSString stringWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"d3.min" withExtension:@".js"] encoding:NSUTF8StringEncoding error:NULL];
     
     _d3script = [[WKUserScript alloc] initWithSource:d3Lib injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:YES];
     
-    BOOL connected = NO; //Going to make this a request to D3 to pull a newer version of D3.js to replace the overwrite the older one.
+    //This code allows one to make a request to the internet and download the latest copy of D3.
+    BOOL connected = YES;
     if (connected) {
         NSURL *d3url = [[NSURL alloc] initWithString:D3_MIN_URL];
         NSURLRequest *d3request = [NSURLRequest requestWithURL:d3url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5.0];
+
+        /* //This is actually a possible way to grab the d3 Library. However this is unsafe and does not allow us to check if we got a correct response.
+        NSString *isItPossible = [NSString stringWithContentsOfURL:d3url encoding:NSStringEncodingConversionExternalRepresentation error:nil];
+        NSLog(@"%@", isItPossible);
+        */
         
         //GET request, this should pull down a copy of the repo.
         [[self.wkSession dataTaskWithRequest:d3request
@@ -94,8 +100,9 @@
                     NSInteger responseCode = [httpResponse statusCode];
                     switch (responseCode) {
                         case 200:
-                            //Handle Script Creation.
-                            NSLog(@"Data: %@", data);
+                            //Grabs the D3 Javascript library.
+                            d3Lib = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                            //NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
                             break;
                             
                         default:
@@ -112,12 +119,12 @@
 }
 
 #pragma mark - Adding User Scripts
--(void)addUserScriptsToContentController:(WKUserScript *)userScript
+-(void)addUserScriptToContentController:(WKUserScript *)userScript
 {
     [_contentController addUserScript:userScript];
 }
 
--(void)addUserScriptsToContentController:(WKUserScript *)userScript withMessageHander:(NSString *)handlerName
+-(void)addUserScriptToContentController:(WKUserScript *)userScript withMessageHander:(NSString *)handlerName
 {
     [_contentController addUserScript:userScript];
     

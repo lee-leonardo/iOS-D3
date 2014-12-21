@@ -27,7 +27,6 @@
 {
     WebKitController *wkController = [WebKitController sharedInstance];
     _webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:wkController.config];
-    
     _webView.UIDelegate = self;
     _webView.navigationDelegate = self;
     
