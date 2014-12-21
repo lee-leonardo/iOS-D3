@@ -70,8 +70,10 @@
 
 -(void)setupD3
 {
-    //Will replace this with a future. The future will be used to handle the updates from the server as well?
-    
+/*
+    This is going to be interesting. I added the D3 into WKWebView, but it will also be imported by the index.html file that we will use to setup the front-end webpage (might be more performant even with a slightly bigger memory footprint?). Although it probably will not matter. Having a copy of d3 on hand within the _contentController will allow the WKWebView to 'understand' other script better?
+ */
+
     NSString *d3Lib = [NSString stringWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"d3.min" withExtension:@".js"] encoding:NSUTF8StringEncoding error:NULL];
     
     _d3script = [[WKUserScript alloc] initWithSource:d3Lib injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:YES];

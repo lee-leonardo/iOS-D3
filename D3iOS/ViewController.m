@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "WebKitController.h"
 
 @interface ViewController ()
 
@@ -29,9 +28,34 @@
     _webView = [[UIWebView alloc] initWithFrame:self.view.frame];
     _webView.delegate = self;
 //    _webView loadRequest:<#(NSURLRequest *)#>
+
+    [self setupWebView];
     
     [self.view addSubview:_webView];
 
+}
+
+#pragma mark Set Up
+-(void)setupWebView
+{
+//    Same idea as this, however this will be replaced directly by the html page. No linkage to the D3.
+//    NSString *d3Lib = [NSString stringWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"d3.min" withExtension:@".js"] encoding:NSUTF8StringEncoding error:NULL];
+    
+    NSString *index = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"];
+    NSURL *startPage = [NSURL fileURLWithPath:index];
+    [_webView loadHTMLString:@"index.html" baseURL:startPage];
+}
+
+#pragma mark Listener
+/*
+    This is where we can inject Javascript code. By a listener much like the WebKit (except we write it manually here).
+ */
+
+-(void)addListener:(id)sender
+{
+//    NSString *d3Lib = [NSString stringWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"d3.min" withExtension:@".js"] encoding:NSUTF8StringEncoding error:NULL];
+//    NSString *result = [_webView stringByEvaluatingJavaScriptFromString:<#(NSString *)#>];
+    
 }
 
 #pragma mark - UIWebViewDelegate
