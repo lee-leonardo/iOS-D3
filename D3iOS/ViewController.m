@@ -5,6 +5,9 @@
 //  Created by Leonardo Lee on 12/18/14.
 //  Copyright (c) 2014 Leonardo Lee. All rights reserved.
 //
+//
+//Article to get more information on the execution of Javascript in Objective-C
+//http://stevenpsmith.wordpress.com/2011/01/20/executing-javascript-from-objective-c-in-an-ios-app/
 
 #import "ViewController.h"
 
@@ -35,7 +38,7 @@
 
 }
 
-#pragma mark Set Up
+#pragma mark - Set Up
 -(void)setupWebView
 {
 //    Same idea as this, however this will be replaced directly by the html page. No linkage to the D3.
@@ -49,6 +52,20 @@
         An alternate way:
         [_webView loadHTMLString:@"" baseURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] resourcePath]]];
      */
+}
+
+#pragma mark - Javascript
+-(void)executeJavascriptScriptFunction:(NSString *)functionName withArguments:(NSString *)arguments
+{
+    /*
+     To Execute a JS script:
+     NSString *arguments = [[NSString alloc] init];
+     NSString *function = [NSString stringWithFormat:@"function(%@)", arguments];
+     NSString *result = [_webView stringByEvaluatingJavaScriptFromString:function];
+     */
+    
+    NSString *function = [NSString stringWithFormat:@"%@(%@)", functionName, arguments];
+    NSString *result = [_webView stringByEvaluatingJavaScriptFromString:function];
 }
 
 #pragma mark Listener
