@@ -9,15 +9,16 @@
 //Article to get more information on the execution of Javascript in Objective-C
 //http://stevenpsmith.wordpress.com/2011/01/20/executing-javascript-from-objective-c-in-an-ios-app/
 
-#import "ViewController.h"
+#import "PreIOS8ViewController.h"
+//#import "WebViewJavascriptBridge.h" //This would be to have Javascript Scripts run in the UIWebView? I am not too sure with the addition of -executeJavascriptFunction
 
-@interface ViewController ()
+@interface PreIOS8ViewController ()
 
 @property (nonatomic, strong) UIWebView *webView;
 
 @end
 
-@implementation ViewController
+@implementation PreIOS8ViewController
 
 #pragma mark - UIView
 - (void)viewDidLoad {
@@ -27,24 +28,25 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    _webView = [[UIWebView alloc] initWithFrame:self.view.frame];
-    _webView.delegate = self;
-//    _webView.suppressesIncrementalRendering = NO; //This will be something one should change so that SVGs do not kill the processor.
-
-    [self setupWebView];
+    [self setupWebView]; //This version has a longer (much longer! loading time).
     [self.view addSubview:_webView];
-
 }
 
 #pragma mark - Set Up
 -(void)setupWebView
 {
+    _webView = [[UIWebView alloc] initWithFrame:self.view.frame];
+    _webView.delegate = self;
+    //    _webView.suppressesIncrementalRendering = NO; //This will be something one should change so that SVGs do not kill the processor.
+    
+
 //    Same idea as this, however this will be replaced directly by the html page. No linkage to the D3.
 //    NSString *d3Lib = [NSString stringWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"d3.min" withExtension:@".js"] encoding:NSUTF8StringEncoding error:NULL];
     
-    NSString *index = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"];
+    NSString *index = [[NSBundle mainBundle] pathForResource:@"simpleExample" ofType:@"html"];
     NSURL *startPage = [NSURL fileURLWithPath:index];
-    [_webView loadHTMLString:@"index.html" baseURL:startPage];
+    NSString *page = [NSString stringWithContentsOfURL:startPage encoding:NSUTF8StringEncoding error:nil];
+    [_webView loadHTMLString:page baseURL:startPage];
     
     /*
         An alternate way:

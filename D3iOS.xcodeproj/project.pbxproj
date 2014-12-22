@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38239EE31A48E26F0070CE6C /* WebViewJavascriptBridge.js.txt in Resources */ = {isa = PBXBuildFile; fileRef = 38239EE01A48E26F0070CE6C /* WebViewJavascriptBridge.js.txt */; };
+		38239EE41A48E26F0070CE6C /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 38239EE11A48E26F0070CE6C /* WebViewJavascriptBridge.m */; };
 		386A89121A464AAD00F6D268 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 386A89111A464AAD00F6D268 /* Constants.m */; };
 		38BCC0AE1A4575A80018406C /* D3WKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BCC0AD1A4575A80018406C /* D3WKViewController.m */; };
 		38D94C661A439E3400BC3668 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D94C651A439E3400BC3668 /* main.m */; };
 		38D94C691A439E3400BC3668 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D94C681A439E3400BC3668 /* AppDelegate.m */; };
-		38D94C6C1A439E3400BC3668 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D94C6B1A439E3400BC3668 /* ViewController.m */; };
+		38D94C6C1A439E3400BC3668 /* PreIOS8ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D94C6B1A439E3400BC3668 /* PreIOS8ViewController.m */; };
 		38D94C6F1A439E3400BC3668 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38D94C6D1A439E3400BC3668 /* Main.storyboard */; };
 		38D94C711A439E3400BC3668 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38D94C701A439E3400BC3668 /* Images.xcassets */; };
 		38D94C741A439E3400BC3668 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38D94C721A439E3400BC3668 /* LaunchScreen.xib */; };
@@ -33,6 +35,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		38239EE01A48E26F0070CE6C /* WebViewJavascriptBridge.js.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WebViewJavascriptBridge.js.txt; sourceTree = "<group>"; };
+		38239EE11A48E26F0070CE6C /* WebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge.m; sourceTree = "<group>"; };
+		38239EE21A48E26F0070CE6C /* WebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge.h; sourceTree = "<group>"; };
 		386A89101A464AAD00F6D268 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		386A89111A464AAD00F6D268 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		38BCC0AC1A4575A80018406C /* D3WKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3WKViewController.h; sourceTree = "<group>"; };
@@ -42,8 +47,8 @@
 		38D94C651A439E3400BC3668 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		38D94C671A439E3400BC3668 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		38D94C681A439E3400BC3668 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		38D94C6A1A439E3400BC3668 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		38D94C6B1A439E3400BC3668 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		38D94C6A1A439E3400BC3668 /* PreIOS8ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreIOS8ViewController.h; sourceTree = "<group>"; };
+		38D94C6B1A439E3400BC3668 /* PreIOS8ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreIOS8ViewController.m; sourceTree = "<group>"; };
 		38D94C6E1A439E3400BC3668 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		38D94C701A439E3400BC3668 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		38D94C731A439E3400BC3668 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -76,6 +81,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38239EE51A48E2720070CE6C /* JavsScriptBridge */ = {
+			isa = PBXGroup;
+			children = (
+				38239EE01A48E26F0070CE6C /* WebViewJavascriptBridge.js.txt */,
+				38239EE11A48E26F0070CE6C /* WebViewJavascriptBridge.m */,
+				38239EE21A48E26F0070CE6C /* WebViewJavascriptBridge.h */,
+			);
+			name = JavsScriptBridge;
+			sourceTree = "<group>";
+		};
 		38D94C571A439E3300BC3668 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +132,7 @@
 			children = (
 				38FA5C441A47E0FA00B2CD43 /* D3Samples */,
 				38D94C921A43AB4200BC3668 /* d3.min.js */,
+				38239EE51A48E2720070CE6C /* JavsScriptBridge */,
 				38D94C641A439E3400BC3668 /* Info.plist */,
 				38D94C651A439E3400BC3668 /* main.m */,
 			);
@@ -144,8 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				38D94C8C1A439F8500BC3668 /* D3Controller */,
-				38D94C6A1A439E3400BC3668 /* ViewController.h */,
-				38D94C6B1A439E3400BC3668 /* ViewController.m */,
+				38D94C6A1A439E3400BC3668 /* PreIOS8ViewController.h */,
+				38D94C6B1A439E3400BC3668 /* PreIOS8ViewController.m */,
 				38BCC0AC1A4575A80018406C /* D3WKViewController.h */,
 				38BCC0AD1A4575A80018406C /* D3WKViewController.m */,
 			);
@@ -274,6 +290,7 @@
 			files = (
 				38FA5C431A47E0ED00B2CD43 /* simpleExample.html in Resources */,
 				38D94C6F1A439E3400BC3668 /* Main.storyboard in Resources */,
+				38239EE31A48E26F0070CE6C /* WebViewJavascriptBridge.js.txt in Resources */,
 				38D94C931A43AB4200BC3668 /* d3.min.js in Resources */,
 				38D94C741A439E3400BC3668 /* LaunchScreen.xib in Resources */,
 				38D94C711A439E3400BC3668 /* Images.xcassets in Resources */,
@@ -295,10 +312,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				38BCC0AE1A4575A80018406C /* D3WKViewController.m in Sources */,
-				38D94C6C1A439E3400BC3668 /* ViewController.m in Sources */,
+				38D94C6C1A439E3400BC3668 /* PreIOS8ViewController.m in Sources */,
 				38D94C691A439E3400BC3668 /* AppDelegate.m in Sources */,
 				38D94C661A439E3400BC3668 /* main.m in Sources */,
 				38D94C911A43A24E00BC3668 /* WebKitController.m in Sources */,
+				38239EE41A48E26F0070CE6C /* WebViewJavascriptBridge.m in Sources */,
 				386A89121A464AAD00F6D268 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

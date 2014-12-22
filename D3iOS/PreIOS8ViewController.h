@@ -9,6 +9,6 @@
 #import "Constants.h"
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <UIWebViewDelegate>
+@interface PreIOS8ViewController : UIViewController <UIWebViewDelegate>
 
 @end

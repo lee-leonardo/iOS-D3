@@ -37,6 +37,7 @@
     _webView.UIDelegate = self;
     _webView.navigationDelegate = self;
     
+    //External.
 //    NSURL *url = [NSURL URLWithString:@"https://www.google.com"];
 //    NSURLRequest *request = [NSURLRequest requestWithURL:url];
 //    [_webView loadRequest:request];
