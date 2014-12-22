@@ -221,6 +221,8 @@
     //Use the message.name property to figure out which message has been received.
     //message.webView is the related WebView.
     //message.body is a JSON object.
+    
+    NSLog(@"Message Received\nName: %@\nBody:%@", message.name, message.body);
 }
 
 @end

@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		38239EE31A48E26F0070CE6C /* WebViewJavascriptBridge.js.txt in Resources */ = {isa = PBXBuildFile; fileRef = 38239EE01A48E26F0070CE6C /* WebViewJavascriptBridge.js.txt */; };
 		38239EE41A48E26F0070CE6C /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 38239EE11A48E26F0070CE6C /* WebViewJavascriptBridge.m */; };
+		38239EEF1A48E58B0070CE6C /* sequences.css in Resources */ = {isa = PBXBuildFile; fileRef = 38239EE61A48E58B0070CE6C /* sequences.css */; };
+		38239EF01A48E58B0070CE6C /* morley.csv in Resources */ = {isa = PBXBuildFile; fileRef = 38239EE71A48E58B0070CE6C /* morley.csv */; };
+		38239EF11A48E58B0070CE6C /* sequences.js in Resources */ = {isa = PBXBuildFile; fileRef = 38239EE81A48E58B0070CE6C /* sequences.js */; };
+		38239EF21A48E58B0070CE6C /* bulletCharts.html in Resources */ = {isa = PBXBuildFile; fileRef = 38239EE91A48E58B0070CE6C /* bulletCharts.html */; };
+		38239EF31A48E58B0070CE6C /* sunburst.html in Resources */ = {isa = PBXBuildFile; fileRef = 38239EEA1A48E58B0070CE6C /* sunburst.html */; };
+		38239EF41A48E58B0070CE6C /* box.js in Resources */ = {isa = PBXBuildFile; fileRef = 38239EEB1A48E58B0070CE6C /* box.js */; };
+		38239EF51A48E58B0070CE6C /* bullet.js in Resources */ = {isa = PBXBuildFile; fileRef = 38239EEC1A48E58B0070CE6C /* bullet.js */; };
+		38239EF61A48E58B0070CE6C /* boxPlots.html in Resources */ = {isa = PBXBuildFile; fileRef = 38239EED1A48E58B0070CE6C /* boxPlots.html */; };
+		38239EF71A48E58B0070CE6C /* bullets.json in Resources */ = {isa = PBXBuildFile; fileRef = 38239EEE1A48E58B0070CE6C /* bullets.json */; };
 		386A89121A464AAD00F6D268 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 386A89111A464AAD00F6D268 /* Constants.m */; };
 		38BCC0AE1A4575A80018406C /* D3WKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BCC0AD1A4575A80018406C /* D3WKViewController.m */; };
 		38D94C661A439E3400BC3668 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D94C651A439E3400BC3668 /* main.m */; };
@@ -38,6 +47,15 @@
 		38239EE01A48E26F0070CE6C /* WebViewJavascriptBridge.js.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WebViewJavascriptBridge.js.txt; sourceTree = "<group>"; };
 		38239EE11A48E26F0070CE6C /* WebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge.m; sourceTree = "<group>"; };
 		38239EE21A48E26F0070CE6C /* WebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge.h; sourceTree = "<group>"; };
+		38239EE61A48E58B0070CE6C /* sequences.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = sequences.css; sourceTree = "<group>"; };
+		38239EE71A48E58B0070CE6C /* morley.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = morley.csv; sourceTree = "<group>"; };
+		38239EE81A48E58B0070CE6C /* sequences.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = sequences.js; sourceTree = "<group>"; };
+		38239EE91A48E58B0070CE6C /* bulletCharts.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = bulletCharts.html; sourceTree = "<group>"; };
+		38239EEA1A48E58B0070CE6C /* sunburst.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = sunburst.html; sourceTree = "<group>"; };
+		38239EEB1A48E58B0070CE6C /* box.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = box.js; sourceTree = "<group>"; };
+		38239EEC1A48E58B0070CE6C /* bullet.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = bullet.js; sourceTree = "<group>"; };
+		38239EED1A48E58B0070CE6C /* boxPlots.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = boxPlots.html; sourceTree = "<group>"; };
+		38239EEE1A48E58B0070CE6C /* bullets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bullets.json; sourceTree = "<group>"; };
 		386A89101A464AAD00F6D268 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		386A89111A464AAD00F6D268 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		38BCC0AC1A4575A80018406C /* D3WKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3WKViewController.h; sourceTree = "<group>"; };
@@ -204,6 +222,15 @@
 			isa = PBXGroup;
 			children = (
 				38FA5C401A47E0ED00B2CD43 /* simpleExample.html */,
+				38239EE61A48E58B0070CE6C /* sequences.css */,
+				38239EE71A48E58B0070CE6C /* morley.csv */,
+				38239EE81A48E58B0070CE6C /* sequences.js */,
+				38239EE91A48E58B0070CE6C /* bulletCharts.html */,
+				38239EEA1A48E58B0070CE6C /* sunburst.html */,
+				38239EEB1A48E58B0070CE6C /* box.js */,
+				38239EEC1A48E58B0070CE6C /* bullet.js */,
+				38239EED1A48E58B0070CE6C /* boxPlots.html */,
+				38239EEE1A48E58B0070CE6C /* bullets.json */,
 			);
 			name = D3Samples;
 			sourceTree = "<group>";
@@ -291,8 +318,17 @@
 				38FA5C431A47E0ED00B2CD43 /* simpleExample.html in Resources */,
 				38D94C6F1A439E3400BC3668 /* Main.storyboard in Resources */,
 				38239EE31A48E26F0070CE6C /* WebViewJavascriptBridge.js.txt in Resources */,
+				38239EF71A48E58B0070CE6C /* bullets.json in Resources */,
+				38239EF61A48E58B0070CE6C /* boxPlots.html in Resources */,
+				38239EF31A48E58B0070CE6C /* sunburst.html in Resources */,
+				38239EF21A48E58B0070CE6C /* bulletCharts.html in Resources */,
 				38D94C931A43AB4200BC3668 /* d3.min.js in Resources */,
+				38239EF01A48E58B0070CE6C /* morley.csv in Resources */,
+				38239EF11A48E58B0070CE6C /* sequences.js in Resources */,
 				38D94C741A439E3400BC3668 /* LaunchScreen.xib in Resources */,
+				38239EEF1A48E58B0070CE6C /* sequences.css in Resources */,
+				38239EF41A48E58B0070CE6C /* box.js in Resources */,
+				38239EF51A48E58B0070CE6C /* bullet.js in Resources */,
 				38D94C711A439E3400BC3668 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

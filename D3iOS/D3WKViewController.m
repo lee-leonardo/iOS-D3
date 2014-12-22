@@ -33,7 +33,8 @@
 -(void)setupWebView
 {
     WebKitController *wkController = [WebKitController sharedInstance];
-    _webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:wkController.config];
+    _webView = [[WKWebView alloc] initWithFrame:CGRectMake(16, 44, self.view.frame.size.width, self.view.frame.size.height)
+                                  configuration:wkController.config];
     _webView.UIDelegate = self;
     _webView.navigationDelegate = self;
     

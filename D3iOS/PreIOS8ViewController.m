@@ -35,7 +35,7 @@
 #pragma mark - Set Up
 -(void)setupWebView
 {
-    _webView = [[UIWebView alloc] initWithFrame:self.view.frame];
+    _webView = [[UIWebView alloc] initWithFrame:CGRectMake(16, 44, self.view.frame.size.width, self.view.frame.size.height)];
     _webView.delegate = self;
     //    _webView.suppressesIncrementalRendering = NO; //This will be something one should change so that SVGs do not kill the processor.
     
