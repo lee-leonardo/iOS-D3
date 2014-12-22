@@ -18,53 +18,87 @@
 @implementation D3WKViewController
 
 #pragma mark - UIView
-- (void)viewDidLoad {
+-(void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
--(void)viewWillAppear
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self setupWebView];
+    [self.view addSubview:_webView];
+}
+
+#pragma mark - Setup
+-(void)setupWebView
 {
     WebKitController *wkController = [WebKitController sharedInstance];
     _webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:wkController.config];
     _webView.UIDelegate = self;
     _webView.navigationDelegate = self;
     
-    //    wkWebView.title
-    //    wkWebView.URL
-    //    wkWebView.loading
-    //    wkWebView.estimatedProgress
+    NSURL *url = [NSURL URLWithString:@"https://www.google.com"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [_webView loadRequest:request];
     
+//    NSString *indexPath = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"];
+//    NSURL *indexURL = [NSURL fileURLWithPath:indexPath];
+//    NSString *indexFile = [NSString stringWithContentsOfURL:indexURL encoding:NSUTF8StringEncoding error:nil];
+//    NSLog(@"indexURL: %@", indexURL);
+//    NSLog(@"indexfile: %@", indexFile);
     
-    [self.view addSubview:_webView];
+//    [_webView loadHTMLString:indexFile baseURL:indexURL];
+    
 }
 
 #pragma mark - WKWebView
 //Where the App 'injects' itself.
+#pragma mark WKNavigationDelegate
+-(void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation
+{
+    
+}
+-(void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
+{
+    
+}
 
-#pragma mark Navigation Actions
+-(void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error
+{
+    
+}
+
 -(void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
 {
     //Handle navigation actions...
     switch (navigationAction.navigationType) {
+        case WKNavigationTypeLinkActivated:
         case WKNavigationTypeReload:
-            //
+        case WKNavigationTypeFormSubmitted:
+            
+            //The problem I think is here...
+            decisionHandler(WKNavigationActionPolicyAllow);
             break;
             
         case WKNavigationTypeFormResubmitted:
-        case WKNavigationTypeFormSubmitted:
-            //
+            decisionHandler(WKNavigationActionPolicyCancel);
             break;
+            
             
         default:
             break;
     }
 }
 
-#pragma mark Navigation Responses
 -(void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler
 {
     //Handle Reponse
+    if (navigationResponse.canShowMIMEType) {
+        decisionHandler(WKNavigationResponsePolicyAllow);
+    } else {
+        decisionHandler(WKNavigationResponsePolicyCancel);
+    }
+    
 }
 
 @end

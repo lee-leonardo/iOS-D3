@@ -22,18 +22,16 @@
 #pragma mark - UIView
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    
+    [super viewWillAppear:animated];
     _webView = [[UIWebView alloc] initWithFrame:self.view.frame];
     _webView.delegate = self;
-//    _webView loadRequest:<#(NSURLRequest *)#>
+//    _webView.suppressesIncrementalRendering = NO; //This will be something one should change so that SVGs do not kill the processor.
 
     [self setupWebView];
-    
     [self.view addSubview:_webView];
 
 }

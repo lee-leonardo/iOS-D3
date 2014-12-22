@@ -26,8 +26,9 @@
     
     if ([[[UIDevice currentDevice] systemVersion] compare:@"8.0.0" options:NSNumericSearch]) {
         _wkController = [WebKitController sharedInstance];
-
-        D3WKViewController * wkView = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"WK_View_Controller"];
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        D3WKViewController * wkView = [storyboard instantiateViewControllerWithIdentifier:@"WK_View_Controller"];
         self.window.rootViewController = wkView;
         
     } else {

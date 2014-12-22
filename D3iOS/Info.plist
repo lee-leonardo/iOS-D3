@@ -5,6 +5,10 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.leeleonardo.d3ios</string>
+			</array>
 			<key>CFBundleURLName</key>
 			<string>d3ios</string>
 		</dict>
