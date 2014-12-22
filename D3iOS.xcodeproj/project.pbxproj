@@ -19,7 +19,7 @@
 		38D94C8E1A439FCA00BC3668 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D94C8D1A439FCA00BC3668 /* WebKit.framework */; };
 		38D94C911A43A24E00BC3668 /* WebKitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D94C901A43A24E00BC3668 /* WebKitController.m */; };
 		38D94C931A43AB4200BC3668 /* d3.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 38D94C921A43AB4200BC3668 /* d3.min.js */; };
-		38FA5C431A47E0ED00B2CD43 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 38FA5C401A47E0ED00B2CD43 /* index.html */; };
+		38FA5C431A47E0ED00B2CD43 /* simpleExample.html in Resources */ = {isa = PBXBuildFile; fileRef = 38FA5C401A47E0ED00B2CD43 /* simpleExample.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,7 @@
 		38D94C8F1A43A24E00BC3668 /* WebKitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebKitController.h; sourceTree = "<group>"; };
 		38D94C901A43A24E00BC3668 /* WebKitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebKitController.m; sourceTree = "<group>"; };
 		38D94C921A43AB4200BC3668 /* d3.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = d3.min.js; sourceTree = "<group>"; };
-		38FA5C401A47E0ED00B2CD43 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		38FA5C401A47E0ED00B2CD43 /* simpleExample.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = simpleExample.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,7 +187,7 @@
 		38FA5C441A47E0FA00B2CD43 /* D3Samples */ = {
 			isa = PBXGroup;
 			children = (
-				38FA5C401A47E0ED00B2CD43 /* index.html */,
+				38FA5C401A47E0ED00B2CD43 /* simpleExample.html */,
 			);
 			name = D3Samples;
 			sourceTree = "<group>";
@@ -272,7 +272,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38FA5C431A47E0ED00B2CD43 /* index.html in Resources */,
+				38FA5C431A47E0ED00B2CD43 /* simpleExample.html in Resources */,
 				38D94C6F1A439E3400BC3668 /* Main.storyboard in Resources */,
 				38D94C931A43AB4200BC3668 /* d3.min.js in Resources */,
 				38D94C741A439E3400BC3668 /* LaunchScreen.xib in Resources */,
