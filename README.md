@@ -15,9 +15,10 @@ I am going to try to make this project reusable as possible. WKWebView is not we
 According to this [article](http://marmelab.com/blog/2013/07/01/building-sophisticated-webapps-for-mobile-a-bumpy-ride.html), the performance his is because of redrawing.
 This can be avoided by using HTML rather than SVGs.
 
-
-
 ##Work used to create this##
+* [NSHipster](http://nshipster.com/wkwebkit/)
 * [WebViewJavascriptBridge](https://github.com/marcuswestin/WebViewJavascriptBridge) (Supports both WebKit and UIWebView).
-* [NodObjC](https://github.com/TooTallNate/NodObjC),  
-    * [Neunode](https://github.com/snakajima/neunode), too focused on the 'server' for this project, but would love to play with it.
+* [Neunode](https://github.com/snakajima/neunode), too focused on the 'server' for this project, but would love to play with it.
+
+##Some articles/projects that I also looked at##
+* [Josh Kehn](https://github.com/joshkehn/JSMessageExample)

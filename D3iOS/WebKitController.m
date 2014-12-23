@@ -223,6 +223,9 @@
     //message.body is a JSON object.
     
     NSLog(@"Message Received\nName: %@\nBody:%@", message.name, message.body);
+    
+    //Post a notification here
+//    [[NSNotificationCenter defaultCenter] postNotificationName:D3_JS_MESSAGE_SAMPLE object:self userInfo:<#(NSDictionary *)#>]
 }
 
 @end

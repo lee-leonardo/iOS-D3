@@ -11,6 +11,15 @@
 NSString * const D3IOS_APPURL;
 NSString * const D3_MIN_URL;
 
+//NSNotification Observers
+NSString *const D3_JS_MESSAGE_SAMPLE;
+
+//D3 Examples
+NSString * const D3_SIMPLE;
+NSString * const D3_BULLET_CHARTS;
+NSString * const D3_BOX_PLOTS;
+NSString * const D3_SUNBURST;
+
 @interface Constants : NSObject
 
 @end

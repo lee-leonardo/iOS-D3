@@ -12,6 +12,7 @@
 @interface D3WKViewController ()
 
 @property (nonatomic, strong) WKWebView *webView;
+@property (nonatomic, strong) NSOperationQueue *scriptQueue;
 
 @end
 
@@ -27,6 +28,33 @@
     [super viewWillAppear:animated];
     [self setupWebView];
     [self.view addSubview:_webView];
+    
+    _scriptQueue = [[NSOperationQueue alloc] init];
+    _scriptQueue.qualityOfService = NSOperationQueuePriorityVeryHigh;
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:D3_JS_MESSAGE_SAMPLE
+                                                      object:self
+                                                       queue:_scriptQueue
+                                                  usingBlock:^(NSNotification *note) {
+                                                      
+                                                      //From here add these as part of the arguments for the script we are sending this to.
+                                                      NSString *name = note.name;
+                                                      NSDictionary *jsObject = note.userInfo;
+                                                      
+                                                      [_scriptQueue addOperationWithBlock:^{
+                                                          [_webView evaluateJavaScript:@"NEED SOMETHING HERE"
+                                                                     completionHandler:^(id object, NSError *error) {
+                                                              
+                                                          }];
+                                                      }];
+                                                  }];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    //Remove Observers added!
+//    [[NSNotificationCenter defaultCenter] removeObserver:<#(id)#> name:<#(NSString *)#> object:<#(id)#>];
 }
 
 #pragma mark - Setup
@@ -37,14 +65,16 @@
                                   configuration:wkController.config];
     _webView.UIDelegate = self;
     _webView.navigationDelegate = self;
+    _webView.allowsBackForwardNavigationGestures = NO; //This disables the ability to go back and go forward (we will be updating manually).
     
-    //External.
-//    NSURL *url = [NSURL URLWithString:@"https://www.google.com"];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//    [_webView loadRequest:request];
-//    request = nil;
+/*//External Example.
+    NSURL *url = [NSURL URLWithString:@"https://www.google.com"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [_webView loadRequest:request];
+    request = nil; 
+ */
     
-    NSString *indexPath = [[NSBundle mainBundle] pathForResource:@"simpleExample" ofType:@"html"];
+    NSString *indexPath = [[NSBundle mainBundle] pathForResource:D3_SIMPLE ofType:@"html"];
     NSURL *indexURL = [NSURL fileURLWithPath:indexPath];
     NSString *indexFile = [NSString stringWithContentsOfURL:indexURL encoding:NSUTF8StringEncoding error:nil];
 //    NSLog(@"indexURL: %@", indexURL);
@@ -56,6 +86,7 @@
 
 #pragma mark - WKWebView
 //Where the App 'injects' itself.
+
 #pragma mark WKNavigationDelegate
 -(void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
 {
@@ -65,11 +96,11 @@
             decisionHandler(WKNavigationActionPolicyAllow);
             break;
             
-        case WKNavigationTypeBackForward:
-        case WKNavigationTypeFormResubmitted:
-        case WKNavigationTypeFormSubmitted:
-        case WKNavigationTypeLinkActivated:
         case WKNavigationTypeReload:
+        case WKNavigationTypeBackForward:
+        case WKNavigationTypeFormSubmitted:
+        case WKNavigationTypeFormResubmitted:
+        case WKNavigationTypeLinkActivated:
             decisionHandler(WKNavigationActionPolicyCancel);
             break;
             
@@ -77,13 +108,13 @@
             break;
     }
     
-    /*//Sample implementation for future...
+/*//Sample implementation for future...
      NSURL *url = navigationAction.request.URL;
      if (![url.host.lowercaseString hasPrefix:@"https://"]) {
      decisionHandler(WKNavigationActionPolicyCancel);
      return;
      }
-     */
+ */
 }
 
 -(void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler
