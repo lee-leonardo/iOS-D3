@@ -61,7 +61,7 @@
 -(void)setupWebView
 {
     WebKitController *wkController = [WebKitController sharedInstance];
-    _webView = [[WKWebView alloc] initWithFrame:CGRectMake(16, 44, self.view.frame.size.width, self.view.frame.size.height)
+    _webView = [[WKWebView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 24, self.view.center.y / 3, self.view.frame.size.width - (self.view.frame.size.width / 12), self.view.frame.size.height / 2)
                                   configuration:wkController.config];
     _webView.UIDelegate = self;
     _webView.navigationDelegate = self;
@@ -73,7 +73,8 @@
     [_webView loadRequest:request];
     request = nil; 
  */
-    
+   
+    //This is found in the D3Samples folder in the Supporting files.
     NSString *indexPath = [[NSBundle mainBundle] pathForResource:D3_SIMPLE ofType:@"html"];
     NSURL *indexURL = [NSURL fileURLWithPath:indexPath];
     NSString *indexFile = [NSString stringWithContentsOfURL:indexURL encoding:NSUTF8StringEncoding error:nil];
@@ -92,15 +93,17 @@
 {
     switch (navigationAction.navigationType) {
         case WKNavigationTypeOther:
+        case WKNavigationTypeReload:
             //This is the action for loading from a local HTML document.
+            NSLog(@"Navigation Allowed.");
             decisionHandler(WKNavigationActionPolicyAllow);
             break;
             
-        case WKNavigationTypeReload:
         case WKNavigationTypeBackForward:
         case WKNavigationTypeFormSubmitted:
         case WKNavigationTypeFormResubmitted:
         case WKNavigationTypeLinkActivated:
+            NSLog(@"Navigation Denied.");
             decisionHandler(WKNavigationActionPolicyCancel);
             break;
             
@@ -127,6 +130,15 @@
         decisionHandler(WKNavigationResponsePolicyCancel);
     }
     
+}
+
+#pragma mark - IBAction
+- (IBAction)refreshWebView:(id)sender {
+//    NSLog(@"Reloaded");
+    [_webView evaluateJavaScript:@"window.webkit.messageHandlers.{NAME}.postMessage({body: "" })"
+               completionHandler:^(id object, NSError * error) {
+//        [_webView reload];
+    }];
 }
 
 @end

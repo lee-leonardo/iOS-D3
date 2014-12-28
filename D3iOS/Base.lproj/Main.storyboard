@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
@@ -32,7 +33,29 @@
                     <view key="view" contentMode="scaleToFill" id="HbG-Wg-4hd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VfF-0D-5qU">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="fw7-XE-TGx"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Kw4-0x-vx7"/>
+                                    <barButtonItem systemItem="refresh" id="8Mw-Fq-98W">
+                                        <connections>
+                                            <action selector="refreshWebView:" destination="A6R-TC-EoC" id="931-EB-gb0"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="XKz-G7-sdu"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VfF-0D-5qU" firstAttribute="leading" secondItem="HbG-Wg-4hd" secondAttribute="leading" id="0Fk-6i-DIv"/>
+                            <constraint firstAttribute="trailing" secondItem="VfF-0D-5qU" secondAttribute="trailing" id="4Hg-Qa-fgV"/>
+                            <constraint firstItem="BvK-5y-n1q" firstAttribute="top" secondItem="VfF-0D-5qU" secondAttribute="bottom" id="oZP-UO-RZA"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ukJ-vo-SGa" userLabel="First Responder" sceneMemberID="firstResponder"/>

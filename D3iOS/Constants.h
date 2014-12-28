@@ -13,6 +13,7 @@ NSString * const D3_MIN_URL;
 
 //NSNotification Observers
 NSString *const D3_JS_MESSAGE_SAMPLE;
+NSString *const D3_EX_REROLL;
 
 //D3 Examples
 NSString * const D3_SIMPLE;

@@ -13,6 +13,7 @@ NSString * const D3_MIN_URL = @"http://d3js.org/d3.v3.min.js";
 
 //NSNotification Observers
 NSString *const D3_JS_MESSAGE_SAMPLE = @"THESE ARE THE OBSERVERS";
+NSString *const D3_EX_REROLL = @"D3_REROLL";
 
 //D3 Examples
 NSString * const D3_SIMPLE = @"simpleExample";
