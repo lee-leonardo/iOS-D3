@@ -109,6 +109,36 @@
 			name = JavsScriptBridge;
 			sourceTree = "<group>";
 		};
+		382C7B801A510DAB009C5BDE /* Bullet */ = {
+			isa = PBXGroup;
+			children = (
+				38239EE91A48E58B0070CE6C /* bulletCharts.html */,
+				38239EEC1A48E58B0070CE6C /* bullet.js */,
+				38239EEE1A48E58B0070CE6C /* bullets.json */,
+			);
+			name = Bullet;
+			sourceTree = "<group>";
+		};
+		382C7B811A510DC7009C5BDE /* Box */ = {
+			isa = PBXGroup;
+			children = (
+				38239EE71A48E58B0070CE6C /* morley.csv */,
+				38239EEB1A48E58B0070CE6C /* box.js */,
+				38239EED1A48E58B0070CE6C /* boxPlots.html */,
+			);
+			name = Box;
+			sourceTree = "<group>";
+		};
+		382C7B821A510DD2009C5BDE /* Sunburst */ = {
+			isa = PBXGroup;
+			children = (
+				38239EE61A48E58B0070CE6C /* sequences.css */,
+				38239EE81A48E58B0070CE6C /* sequences.js */,
+				38239EEA1A48E58B0070CE6C /* sunburst.html */,
+			);
+			name = Sunburst;
+			sourceTree = "<group>";
+		};
 		38D94C571A439E3300BC3668 = {
 			isa = PBXGroup;
 			children = (
@@ -222,15 +252,9 @@
 			isa = PBXGroup;
 			children = (
 				38FA5C401A47E0ED00B2CD43 /* simpleExample.html */,
-				38239EE61A48E58B0070CE6C /* sequences.css */,
-				38239EE71A48E58B0070CE6C /* morley.csv */,
-				38239EE81A48E58B0070CE6C /* sequences.js */,
-				38239EE91A48E58B0070CE6C /* bulletCharts.html */,
-				38239EEA1A48E58B0070CE6C /* sunburst.html */,
-				38239EEB1A48E58B0070CE6C /* box.js */,
-				38239EEC1A48E58B0070CE6C /* bullet.js */,
-				38239EED1A48E58B0070CE6C /* boxPlots.html */,
-				38239EEE1A48E58B0070CE6C /* bullets.json */,
+				382C7B821A510DD2009C5BDE /* Sunburst */,
+				382C7B811A510DC7009C5BDE /* Box */,
+				382C7B801A510DAB009C5BDE /* Bullet */,
 			);
 			name = D3Samples;
 			sourceTree = "<group>";

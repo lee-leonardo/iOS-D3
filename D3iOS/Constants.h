@@ -8,18 +8,22 @@
 
 #import <Foundation/Foundation.h>
 
-NSString * const D3IOS_APPURL;
-NSString * const D3_MIN_URL;
+NSString * const URL_D3IOS_APPURL;
+NSString * const URL_D3_MIN_URL;
 
 //NSNotification Observers
-NSString *const D3_JS_MESSAGE_SAMPLE;
-NSString *const D3_EX_REROLL;
+NSString *const D3_NOTE_JS_MESSAGE_SAMPLE;
+NSString *const D3_NOTE_UPDATE_DATA;
+NSString *const D3_NOTE_REROLL;
+
+//JS Message String
+NSString *const JS_UPDATE;
 
 //D3 Examples
-NSString * const D3_SIMPLE;
-NSString * const D3_BULLET_CHARTS;
-NSString * const D3_BOX_PLOTS;
-NSString * const D3_SUNBURST;
+NSString * const EXP_D3_SIMPLE;
+NSString * const EXP_D3_BULLET_CHARTS;
+NSString * const EXP_D3_BOX_PLOTS;
+NSString * const EXP_D3_SUNBURST;
 
 @interface Constants : NSObject
 

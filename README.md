@@ -17,8 +17,8 @@ This can be avoided by using HTML rather than SVGs.
 
 ##Work used to create this##
 * [NSHipster](http://nshipster.com/wkwebkit/)
+* [Josh Kehn](https://github.com/joshkehn/JSMessageExample)
+
+##Honorary Mentions##
 * [WebViewJavascriptBridge](https://github.com/marcuswestin/WebViewJavascriptBridge) (Supports both WebKit and UIWebView).
 * [Neunode](https://github.com/snakajima/neunode), too focused on the 'server' for this project, but would love to play with it.
-
-##Some articles/projects that I also looked at##
-* [Josh Kehn](https://github.com/joshkehn/JSMessageExample)

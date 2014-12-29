@@ -32,7 +32,7 @@
     _scriptQueue = [[NSOperationQueue alloc] init];
     _scriptQueue.qualityOfService = NSOperationQueuePriorityVeryHigh;
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:D3_JS_MESSAGE_SAMPLE
+    [[NSNotificationCenter defaultCenter] addObserverForName:D3_NOTE_JS_MESSAGE_SAMPLE
                                                       object:self
                                                        queue:_scriptQueue
                                                   usingBlock:^(NSNotification *note) {
@@ -41,13 +41,28 @@
                                                       NSString *name = note.name;
                                                       NSDictionary *jsObject = note.userInfo;
                                                       
-                                                      [_scriptQueue addOperationWithBlock:^{
-                                                          [_webView evaluateJavaScript:@"NEED SOMETHING HERE"
-                                                                     completionHandler:^(id object, NSError *error) {
-                                                              
-                                                          }];
+                                                      [_webView evaluateJavaScript:@"NEED SOMETHING HERE"
+                                                                 completionHandler:^(id object, NSError *error) {
+                                                          
                                                       }];
                                                   }];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:D3_NOTE_UPDATE_DATA
+                                                      object:self
+                                                       queue:_scriptQueue
+                                                  usingBlock:^(NSNotification *note) {
+                                                      
+                                                      NSString *js = [NSString stringWithFormat:@""];
+                                                      
+                                                      [_webView evaluateJavaScript:js
+                                                                 completionHandler:^(id object, NSError * error) {
+                                                                     if (error) {
+                                                                         NSLog(@"Error: %@", error.localizedDescription);
+                                                                     }
+                                                                 }];
+                                                  }];
+    
 }
 
 -(void)viewDidDisappear:(BOOL)animated
@@ -75,7 +90,7 @@
  */
    
     //This is found in the D3Samples folder in the Supporting files.
-    NSString *indexPath = [[NSBundle mainBundle] pathForResource:D3_SIMPLE ofType:@"html"];
+    NSString *indexPath = [[NSBundle mainBundle] pathForResource:EXP_D3_SIMPLE ofType:@"html"];
     NSURL *indexURL = [NSURL fileURLWithPath:indexPath];
     NSString *indexFile = [NSString stringWithContentsOfURL:indexURL encoding:NSUTF8StringEncoding error:nil];
 //    NSLog(@"indexURL: %@", indexURL);

@@ -85,7 +85,7 @@
     //This code allows one to make a request to the internet and download the latest copy of D3.
     BOOL connected = YES; //I am thinking of changing this so that it will only run when on WiFi.
     if (connected) {
-        NSURL *d3url = [[NSURL alloc] initWithString:D3_MIN_URL];
+        NSURL *d3url = [[NSURL alloc] initWithString:URL_D3_MIN_URL];
         NSURLRequest *d3request = [NSURLRequest requestWithURL:d3url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5.0];
 
         /* //This is actually a possible way to grab the d3 Library. However this is unsafe and does not allow us to check if we got a correct response.
@@ -222,10 +222,20 @@
     //message.webView is the related WebView.
     //message.body is a JSON object.
     
-    NSLog(@"Message Received\nName: %@\nBody:%@", message.name, message.body);
+    NSLog(@"Message Received\nName: %@", message.name);
     
-    //Post a notification here
-//    [[NSNotificationCenter defaultCenter] postNotificationName:D3_JS_MESSAGE_SAMPLE object:self userInfo:<#(NSDictionary *)#>]
+    if ([message.name isEqualToString:JS_UPDATE]) {
+        NSLog(@"Body:\n%@", message.body);
+        NSDictionary *dict = @{};
+        [[NSNotificationCenter defaultCenter] postNotificationName:D3_NOTE_UPDATE_DATA object:self userInfo:dict];
+    }
+    
+    /*
+     Check with the format:
+     if ([message.name isEqualToString:@""]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:D3_JS_MESSAGE_SAMPLE object:self userInfo:@{}]
+     }
+     */
 }
 
 @end
