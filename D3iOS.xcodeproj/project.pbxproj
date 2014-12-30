@@ -9,15 +9,25 @@
 /* Begin PBXBuildFile section */
 		38239EE31A48E26F0070CE6C /* WebViewJavascriptBridge.js.txt in Resources */ = {isa = PBXBuildFile; fileRef = 38239EE01A48E26F0070CE6C /* WebViewJavascriptBridge.js.txt */; };
 		38239EE41A48E26F0070CE6C /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 38239EE11A48E26F0070CE6C /* WebViewJavascriptBridge.m */; };
-		38239EEF1A48E58B0070CE6C /* sequences.css in Resources */ = {isa = PBXBuildFile; fileRef = 38239EE61A48E58B0070CE6C /* sequences.css */; };
-		38239EF01A48E58B0070CE6C /* morley.csv in Resources */ = {isa = PBXBuildFile; fileRef = 38239EE71A48E58B0070CE6C /* morley.csv */; };
-		38239EF11A48E58B0070CE6C /* sequences.js in Resources */ = {isa = PBXBuildFile; fileRef = 38239EE81A48E58B0070CE6C /* sequences.js */; };
-		38239EF21A48E58B0070CE6C /* bulletCharts.html in Resources */ = {isa = PBXBuildFile; fileRef = 38239EE91A48E58B0070CE6C /* bulletCharts.html */; };
-		38239EF31A48E58B0070CE6C /* sunburst.html in Resources */ = {isa = PBXBuildFile; fileRef = 38239EEA1A48E58B0070CE6C /* sunburst.html */; };
-		38239EF41A48E58B0070CE6C /* box.js in Resources */ = {isa = PBXBuildFile; fileRef = 38239EEB1A48E58B0070CE6C /* box.js */; };
-		38239EF51A48E58B0070CE6C /* bullet.js in Resources */ = {isa = PBXBuildFile; fileRef = 38239EEC1A48E58B0070CE6C /* bullet.js */; };
-		38239EF61A48E58B0070CE6C /* boxPlots.html in Resources */ = {isa = PBXBuildFile; fileRef = 38239EED1A48E58B0070CE6C /* boxPlots.html */; };
-		38239EF71A48E58B0070CE6C /* bullets.json in Resources */ = {isa = PBXBuildFile; fileRef = 38239EEE1A48E58B0070CE6C /* bullets.json */; };
+		386719991A53561A000978D2 /* bullet.js in Resources */ = {isa = PBXBuildFile; fileRef = 386719811A53561A000978D2 /* bullet.js */; };
+		3867199A1A53561A000978D2 /* bulletCharts.html in Resources */ = {isa = PBXBuildFile; fileRef = 386719821A53561A000978D2 /* bulletCharts.html */; };
+		3867199B1A53561A000978D2 /* bullets.json in Resources */ = {isa = PBXBuildFile; fileRef = 386719831A53561A000978D2 /* bullets.json */; };
+		3867199C1A53561A000978D2 /* box.js in Resources */ = {isa = PBXBuildFile; fileRef = 386719851A53561A000978D2 /* box.js */; };
+		3867199D1A53561A000978D2 /* boxPlots.html in Resources */ = {isa = PBXBuildFile; fileRef = 386719861A53561A000978D2 /* boxPlots.html */; };
+		3867199E1A53561A000978D2 /* morley.csv in Resources */ = {isa = PBXBuildFile; fileRef = 386719871A53561A000978D2 /* morley.csv */; };
+		3867199F1A53561A000978D2 /* D3_MODULE.js in Resources */ = {isa = PBXBuildFile; fileRef = 386719881A53561A000978D2 /* D3_MODULE.js */; };
+		386719A01A53561A000978D2 /* eventListenerTips.js in Resources */ = {isa = PBXBuildFile; fileRef = 386719891A53561A000978D2 /* eventListenerTips.js */; };
+		386719A11A53561A000978D2 /* randRoll.html in Resources */ = {isa = PBXBuildFile; fileRef = 3867198B1A53561A000978D2 /* randRoll.html */; };
+		386719A21A53561A000978D2 /* rollExample.js in Resources */ = {isa = PBXBuildFile; fileRef = 3867198C1A53561A000978D2 /* rollExample.js */; };
+		386719A31A53561A000978D2 /* sampleMessageCreation.js in Resources */ = {isa = PBXBuildFile; fileRef = 3867198D1A53561A000978D2 /* sampleMessageCreation.js */; };
+		386719A41A53561A000978D2 /* tempPie.js in Resources */ = {isa = PBXBuildFile; fileRef = 3867198E1A53561A000978D2 /* tempPie.js */; };
+		386719A51A53561A000978D2 /* barchart.js in Resources */ = {isa = PBXBuildFile; fileRef = 386719901A53561A000978D2 /* barchart.js */; };
+		386719A61A53561A000978D2 /* basic.css in Resources */ = {isa = PBXBuildFile; fileRef = 386719911A53561A000978D2 /* basic.css */; };
+		386719A71A53561A000978D2 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 386719921A53561A000978D2 /* index.html */; };
+		386719A81A53561A000978D2 /* sequences.css in Resources */ = {isa = PBXBuildFile; fileRef = 386719941A53561A000978D2 /* sequences.css */; };
+		386719A91A53561A000978D2 /* sequences.js in Resources */ = {isa = PBXBuildFile; fileRef = 386719951A53561A000978D2 /* sequences.js */; };
+		386719AA1A53561A000978D2 /* sunburst.html in Resources */ = {isa = PBXBuildFile; fileRef = 386719961A53561A000978D2 /* sunburst.html */; };
+		386719AB1A53561A000978D2 /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = 386719981A53561A000978D2 /* test.html */; };
 		386A89121A464AAD00F6D268 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 386A89111A464AAD00F6D268 /* Constants.m */; };
 		38BCC0AE1A4575A80018406C /* D3WKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BCC0AD1A4575A80018406C /* D3WKViewController.m */; };
 		38D94C661A439E3400BC3668 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D94C651A439E3400BC3668 /* main.m */; };
@@ -30,7 +40,6 @@
 		38D94C8E1A439FCA00BC3668 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D94C8D1A439FCA00BC3668 /* WebKit.framework */; };
 		38D94C911A43A24E00BC3668 /* WebKitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D94C901A43A24E00BC3668 /* WebKitController.m */; };
 		38D94C931A43AB4200BC3668 /* d3.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 38D94C921A43AB4200BC3668 /* d3.min.js */; };
-		38FA5C431A47E0ED00B2CD43 /* simpleExample.html in Resources */ = {isa = PBXBuildFile; fileRef = 38FA5C401A47E0ED00B2CD43 /* simpleExample.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,15 +56,25 @@
 		38239EE01A48E26F0070CE6C /* WebViewJavascriptBridge.js.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WebViewJavascriptBridge.js.txt; sourceTree = "<group>"; };
 		38239EE11A48E26F0070CE6C /* WebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge.m; sourceTree = "<group>"; };
 		38239EE21A48E26F0070CE6C /* WebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge.h; sourceTree = "<group>"; };
-		38239EE61A48E58B0070CE6C /* sequences.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = sequences.css; sourceTree = "<group>"; };
-		38239EE71A48E58B0070CE6C /* morley.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = morley.csv; sourceTree = "<group>"; };
-		38239EE81A48E58B0070CE6C /* sequences.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = sequences.js; sourceTree = "<group>"; };
-		38239EE91A48E58B0070CE6C /* bulletCharts.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = bulletCharts.html; sourceTree = "<group>"; };
-		38239EEA1A48E58B0070CE6C /* sunburst.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = sunburst.html; sourceTree = "<group>"; };
-		38239EEB1A48E58B0070CE6C /* box.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = box.js; sourceTree = "<group>"; };
-		38239EEC1A48E58B0070CE6C /* bullet.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = bullet.js; sourceTree = "<group>"; };
-		38239EED1A48E58B0070CE6C /* boxPlots.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = boxPlots.html; sourceTree = "<group>"; };
-		38239EEE1A48E58B0070CE6C /* bullets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bullets.json; sourceTree = "<group>"; };
+		386719811A53561A000978D2 /* bullet.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = bullet.js; sourceTree = "<group>"; };
+		386719821A53561A000978D2 /* bulletCharts.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = bulletCharts.html; sourceTree = "<group>"; };
+		386719831A53561A000978D2 /* bullets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bullets.json; sourceTree = "<group>"; };
+		386719851A53561A000978D2 /* box.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = box.js; sourceTree = "<group>"; };
+		386719861A53561A000978D2 /* boxPlots.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = boxPlots.html; sourceTree = "<group>"; };
+		386719871A53561A000978D2 /* morley.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = morley.csv; sourceTree = "<group>"; };
+		386719881A53561A000978D2 /* D3_MODULE.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = D3_MODULE.js; sourceTree = "<group>"; };
+		386719891A53561A000978D2 /* eventListenerTips.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = eventListenerTips.js; sourceTree = "<group>"; };
+		3867198B1A53561A000978D2 /* randRoll.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = randRoll.html; sourceTree = "<group>"; };
+		3867198C1A53561A000978D2 /* rollExample.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = rollExample.js; sourceTree = "<group>"; };
+		3867198D1A53561A000978D2 /* sampleMessageCreation.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = sampleMessageCreation.js; sourceTree = "<group>"; };
+		3867198E1A53561A000978D2 /* tempPie.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = tempPie.js; sourceTree = "<group>"; };
+		386719901A53561A000978D2 /* barchart.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = barchart.js; sourceTree = "<group>"; };
+		386719911A53561A000978D2 /* basic.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = basic.css; sourceTree = "<group>"; };
+		386719921A53561A000978D2 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		386719941A53561A000978D2 /* sequences.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = sequences.css; sourceTree = "<group>"; };
+		386719951A53561A000978D2 /* sequences.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = sequences.js; sourceTree = "<group>"; };
+		386719961A53561A000978D2 /* sunburst.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = sunburst.html; sourceTree = "<group>"; };
+		386719981A53561A000978D2 /* test.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
 		386A89101A464AAD00F6D268 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		386A89111A464AAD00F6D268 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		38BCC0AC1A4575A80018406C /* D3WKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3WKViewController.h; sourceTree = "<group>"; };
@@ -77,7 +96,6 @@
 		38D94C8F1A43A24E00BC3668 /* WebKitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebKitController.h; sourceTree = "<group>"; };
 		38D94C901A43A24E00BC3668 /* WebKitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebKitController.m; sourceTree = "<group>"; };
 		38D94C921A43AB4200BC3668 /* d3.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = d3.min.js; sourceTree = "<group>"; };
-		38FA5C401A47E0ED00B2CD43 /* simpleExample.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = simpleExample.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,34 +127,78 @@
 			name = JavsScriptBridge;
 			sourceTree = "<group>";
 		};
-		382C7B801A510DAB009C5BDE /* Bullet */ = {
+		3867197F1A53561A000978D2 /* D3JS */ = {
 			isa = PBXGroup;
 			children = (
-				38239EE91A48E58B0070CE6C /* bulletCharts.html */,
-				38239EEC1A48E58B0070CE6C /* bullet.js */,
-				38239EEE1A48E58B0070CE6C /* bullets.json */,
+				386719801A53561A000978D2 /* barchart */,
+				386719841A53561A000978D2 /* boxplot */,
+				386719881A53561A000978D2 /* D3_MODULE.js */,
+				386719891A53561A000978D2 /* eventListenerTips.js */,
+				3867198A1A53561A000978D2 /* newUpdate */,
+				3867198F1A53561A000978D2 /* simple */,
+				386719931A53561A000978D2 /* sunburst */,
+				386719971A53561A000978D2 /* test */,
 			);
-			name = Bullet;
+			path = D3JS;
+			sourceTree = SOURCE_ROOT;
+		};
+		386719801A53561A000978D2 /* barchart */ = {
+			isa = PBXGroup;
+			children = (
+				386719811A53561A000978D2 /* bullet.js */,
+				386719821A53561A000978D2 /* bulletCharts.html */,
+				386719831A53561A000978D2 /* bullets.json */,
+			);
+			path = barchart;
 			sourceTree = "<group>";
 		};
-		382C7B811A510DC7009C5BDE /* Box */ = {
+		386719841A53561A000978D2 /* boxplot */ = {
 			isa = PBXGroup;
 			children = (
-				38239EE71A48E58B0070CE6C /* morley.csv */,
-				38239EEB1A48E58B0070CE6C /* box.js */,
-				38239EED1A48E58B0070CE6C /* boxPlots.html */,
+				386719851A53561A000978D2 /* box.js */,
+				386719861A53561A000978D2 /* boxPlots.html */,
+				386719871A53561A000978D2 /* morley.csv */,
 			);
-			name = Box;
+			path = boxplot;
 			sourceTree = "<group>";
 		};
-		382C7B821A510DD2009C5BDE /* Sunburst */ = {
+		3867198A1A53561A000978D2 /* newUpdate */ = {
 			isa = PBXGroup;
 			children = (
-				38239EE61A48E58B0070CE6C /* sequences.css */,
-				38239EE81A48E58B0070CE6C /* sequences.js */,
-				38239EEA1A48E58B0070CE6C /* sunburst.html */,
+				3867198B1A53561A000978D2 /* randRoll.html */,
+				3867198C1A53561A000978D2 /* rollExample.js */,
+				3867198D1A53561A000978D2 /* sampleMessageCreation.js */,
+				3867198E1A53561A000978D2 /* tempPie.js */,
 			);
-			name = Sunburst;
+			path = newUpdate;
+			sourceTree = "<group>";
+		};
+		3867198F1A53561A000978D2 /* simple */ = {
+			isa = PBXGroup;
+			children = (
+				386719901A53561A000978D2 /* barchart.js */,
+				386719911A53561A000978D2 /* basic.css */,
+				386719921A53561A000978D2 /* index.html */,
+			);
+			path = simple;
+			sourceTree = "<group>";
+		};
+		386719931A53561A000978D2 /* sunburst */ = {
+			isa = PBXGroup;
+			children = (
+				386719941A53561A000978D2 /* sequences.css */,
+				386719951A53561A000978D2 /* sequences.js */,
+				386719961A53561A000978D2 /* sunburst.html */,
+			);
+			path = sunburst;
+			sourceTree = "<group>";
+		};
+		386719971A53561A000978D2 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				386719981A53561A000978D2 /* test.html */,
+			);
+			path = test;
 			sourceTree = "<group>";
 		};
 		38D94C571A439E3300BC3668 = {
@@ -178,7 +240,7 @@
 		38D94C631A439E3400BC3668 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				38FA5C441A47E0FA00B2CD43 /* D3Samples */,
+				3867197F1A53561A000978D2 /* D3JS */,
 				38D94C921A43AB4200BC3668 /* d3.min.js */,
 				38239EE51A48E2720070CE6C /* JavsScriptBridge */,
 				38D94C641A439E3400BC3668 /* Info.plist */,
@@ -246,17 +308,6 @@
 				38D94C8D1A439FCA00BC3668 /* WebKit.framework */,
 			);
 			name = Framework;
-			sourceTree = "<group>";
-		};
-		38FA5C441A47E0FA00B2CD43 /* D3Samples */ = {
-			isa = PBXGroup;
-			children = (
-				38FA5C401A47E0ED00B2CD43 /* simpleExample.html */,
-				382C7B821A510DD2009C5BDE /* Sunburst */,
-				382C7B811A510DC7009C5BDE /* Box */,
-				382C7B801A510DAB009C5BDE /* Bullet */,
-			);
-			name = D3Samples;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,21 +390,30 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38FA5C431A47E0ED00B2CD43 /* simpleExample.html in Resources */,
+				386719A41A53561A000978D2 /* tempPie.js in Resources */,
+				386719AA1A53561A000978D2 /* sunburst.html in Resources */,
+				3867199A1A53561A000978D2 /* bulletCharts.html in Resources */,
 				38D94C6F1A439E3400BC3668 /* Main.storyboard in Resources */,
+				386719A91A53561A000978D2 /* sequences.js in Resources */,
 				38239EE31A48E26F0070CE6C /* WebViewJavascriptBridge.js.txt in Resources */,
-				38239EF71A48E58B0070CE6C /* bullets.json in Resources */,
-				38239EF61A48E58B0070CE6C /* boxPlots.html in Resources */,
-				38239EF31A48E58B0070CE6C /* sunburst.html in Resources */,
-				38239EF21A48E58B0070CE6C /* bulletCharts.html in Resources */,
+				386719991A53561A000978D2 /* bullet.js in Resources */,
+				386719A71A53561A000978D2 /* index.html in Resources */,
+				3867199C1A53561A000978D2 /* box.js in Resources */,
+				3867199D1A53561A000978D2 /* boxPlots.html in Resources */,
 				38D94C931A43AB4200BC3668 /* d3.min.js in Resources */,
-				38239EF01A48E58B0070CE6C /* morley.csv in Resources */,
-				38239EF11A48E58B0070CE6C /* sequences.js in Resources */,
+				3867199F1A53561A000978D2 /* D3_MODULE.js in Resources */,
+				386719A51A53561A000978D2 /* barchart.js in Resources */,
+				386719A11A53561A000978D2 /* randRoll.html in Resources */,
+				386719A81A53561A000978D2 /* sequences.css in Resources */,
+				386719A61A53561A000978D2 /* basic.css in Resources */,
 				38D94C741A439E3400BC3668 /* LaunchScreen.xib in Resources */,
-				38239EEF1A48E58B0070CE6C /* sequences.css in Resources */,
-				38239EF41A48E58B0070CE6C /* box.js in Resources */,
-				38239EF51A48E58B0070CE6C /* bullet.js in Resources */,
+				3867199E1A53561A000978D2 /* morley.csv in Resources */,
 				38D94C711A439E3400BC3668 /* Images.xcassets in Resources */,
+				3867199B1A53561A000978D2 /* bullets.json in Resources */,
+				386719AB1A53561A000978D2 /* test.html in Resources */,
+				386719A01A53561A000978D2 /* eventListenerTips.js in Resources */,
+				386719A21A53561A000978D2 /* rollExample.js in Resources */,
+				386719A31A53561A000978D2 /* sampleMessageCreation.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

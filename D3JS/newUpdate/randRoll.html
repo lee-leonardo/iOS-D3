@@ -1,0 +1,122 @@
+<doctype html>
+  <html>
+  <head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js" charset="utf-8"></script>
+
+    <style>
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: auto;
+        position: relative;
+        width: 960px;
+      }
+
+      text {
+        font: 10px sans-serif;
+      }
+
+      form {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+   <script charset='utf-8' async>
+      var width = 960,
+      height = 500,
+      radius = Math.min(width, height) / 2;
+
+      var color = d3.scale.category10();
+      // var color = d3.scale.category20();
+
+      var pie = d3.layout.pie()
+      .value(function(d) { return d.value; })
+      .sort(null);
+
+      var arc = d3.svg.arc()
+      .innerRadius(radius - 100)
+      .outerRadius(radius - 20);
+
+      var svg = d3.select("body").append("svg")
+      .attr("width", width)
+      .attr("height", height)
+      .append("svg:g")
+      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+      //.data([data]); //To associate data with the object.
+
+
+
+
+      //Selects all g elements (not available yet.)
+      var arcs = svg.selectAll("g.slice")
+        .data(pie) //generates pie data.
+        .enter() //generates elements for each element in the selection.
+        .append("svg:g"); //groups to hold each slice?
+        //.attr("class", "slice");  //Allows for styling
+
+
+      arcs.append("svg:path")
+        .attr("fill", function(d, i) { return color(i); })
+        .attr("d", arc); //Path for data associated with pie.
+
+      arcs.append("svg:text")
+        .attr("transform", function(d) {
+          d.innerRadius = 0;
+          d.outerRadius = radius;
+          return "translate(" + arc.centroid(d) + ")";
+        })
+        .attr("text-anchor", "middle")
+        .text(function (d, i) { return data[i].label; });
+
+/*
+      d3.sellectAll("input").on("change", updatePie);
+
+        function updatePie() {
+          var value = this.value;
+          clearTimeout(timeout);
+          pie.value(function(d){ return d[value]; }); //change the value
+          path = path.data(pie); //Comput new angles.
+          path.attr("d", arc); //Redraw arcs.
+        }
+*/
+/*
+      d3.tsv("data.tsv", type, function(error, data) {
+        var path = svg.datum(data).selectAll("path")
+        .data(pie)
+        .enter().append("path")
+        .attr("fill", function(d, i) { return color(i); })
+        .attr("d", arc);
+
+        d3.selectAll("input")
+        .on("change", change);
+
+        var timeout = setTimeout(function() {
+          d3.select("input[value=\"oranges\"]").property("checked", true).each(change);
+        }, 2000);
+
+        function change() {
+          var value = this.value;
+          clearTimeout(timeout);
+          pie.value(function(d) { return d[value]; }); // change the value function
+          path = path.data(pie); // compute the new angles
+          path.attr("d", arc); // redraw the arcs
+        }
+      });
+*/
+
+/*
+      function type(d) {
+        d.apples = +d.apples;
+        d.oranges = +d.oranges;
+        return d;
+      }
+*/
+    </script>
+  </body>
+  </html>
