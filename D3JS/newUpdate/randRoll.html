@@ -24,6 +24,9 @@
         top: 10px;
       }
     </style>
+
+    <script src="D3_MODULE.js" charset="utf-8"></script>
+
   </head>
 
   <body>
@@ -35,23 +38,33 @@
       var color = d3.scale.category10();
       // var color = d3.scale.category20();
 
+
+      /*
+        Replace this data asap.
+      */
+      data = [{"value":2},
+              {"value":0},
+              {"value":1},
+              {"value":4},
+              {"value":3},
+              {"value":7},
+              {"value":10}
+            ];
+
       var pie = d3.layout.pie()
-      .value(function(d) { return d.value; })
-      .sort(null);
+        .value(function(d) { return d.value; })
+        .sort(null);
 
       var arc = d3.svg.arc()
-      .innerRadius(radius - 100)
-      .outerRadius(radius - 20);
+        .innerRadius(radius - 100)
+        .outerRadius(radius - 20);
 
       var svg = d3.select("body").append("svg")
-      .attr("width", width)
-      .attr("height", height)
-      .append("svg:g")
-      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-      //.data([data]); //To associate data with the object.
-
-
-
+        .attr("width", width)
+        .attr("height", height)
+        .append("svg:g")
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+        //.data([data]); //To associate data with the object.
 
       //Selects all g elements (not available yet.)
       var arcs = svg.selectAll("g.slice")
@@ -65,14 +78,14 @@
         .attr("fill", function(d, i) { return color(i); })
         .attr("d", arc); //Path for data associated with pie.
 
-      arcs.append("svg:text")
-        .attr("transform", function(d) {
-          d.innerRadius = 0;
-          d.outerRadius = radius;
-          return "translate(" + arc.centroid(d) + ")";
-        })
-        .attr("text-anchor", "middle")
-        .text(function (d, i) { return data[i].label; });
+      // arcs.append("svg:text")
+      //   .attr("transform", function(d) {
+      //     d.innerRadius = 0;
+      //     d.outerRadius = radius;
+      //     return "translate(" + arc.centroid(d) + ")";
+      //   })
+      //   .attr("text-anchor", "middle")
+      //   .text(function (d, i) { return data[i].label; });
 
 /*
       d3.sellectAll("input").on("change", updatePie);
@@ -85,38 +98,11 @@
           path.attr("d", arc); //Redraw arcs.
         }
 */
-/*
-      d3.tsv("data.tsv", type, function(error, data) {
-        var path = svg.datum(data).selectAll("path")
-        .data(pie)
-        .enter().append("path")
-        .attr("fill", function(d, i) { return color(i); })
-        .attr("d", arc);
+    </script>
 
-        d3.selectAll("input")
-        .on("change", change);
-
-        var timeout = setTimeout(function() {
-          d3.select("input[value=\"oranges\"]").property("checked", true).each(change);
-        }, 2000);
-
-        function change() {
-          var value = this.value;
-          clearTimeout(timeout);
-          pie.value(function(d) { return d[value]; }); // change the value function
-          path = path.data(pie); // compute the new angles
-          path.attr("d", arc); // redraw the arcs
-        }
-      });
-*/
-
-/*
-      function type(d) {
-        d.apples = +d.apples;
-        d.oranges = +d.oranges;
-        return d;
-      }
-*/
+    <script async>
+      //This will execute and work well!
+      var demo = D3_DEMO_MODULE;
     </script>
   </body>
   </html>
