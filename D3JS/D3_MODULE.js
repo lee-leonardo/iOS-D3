@@ -7,13 +7,21 @@
 //  NOTE:
 //  This module requires D3.js to run properly.
 
+/*
+Leo's Plan:
+  1. Make a module to stick functions in, since JS added to a html file SHOULD be global, this'll help differentiate and keep things tidy.
+  2. Thus what I'll do is have an injected script create an empty element named "svg," this'll be where the SVG will be placed.
+  3. Updating the SVG will be done at a later point once I have the basic stuff for generating a pie chart done.
+*/
+
 var INTERACT_MODULE_D3 = (function () {
+
+  var listeners = new Object();
 
   function sendJSMessage(eventName, elem, data) {
     var event = CustomEvent(eventName, data);
     elem.dispatchEvent(event);
   }
-
 
   function setupMessageListener(eventName, elem, callback) {
     elem.addEventListener(eventName, function(d) {
@@ -21,21 +29,30 @@ var INTERACT_MODULE_D3 = (function () {
     });
   }
 
+  function checkForListener(name) {
+    if (listeners[name]) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   return {
     update: function(data) {
 
     },
+    sendMessage: function(name, element, data) {
 
+    },
+    addListener: function(name, element, callback) {
+      if (!checkForListener(name)) {
+        setupMessageListener(name, element, callback);
+      } else {
+        console.log("Listener's name exists.");
+      }
+    },
   };
 })();
-
-/*
-Leo's Plan:
-1. Make a module to stick functions in, since JS added to a html file SHOULD be global, this'll help differentiate and keep things tidy.
-2. Thus what I'll do is have an injected script create an empty element named "svg," this'll be where the SVG will be placed.
-3. Updating the SVG will be done at a later point once I have the basic stuff for generating a pie chart done.
-
-*/
 
 //
 //  Custom Module for this project.

@@ -36,4 +36,5 @@ function newRoll() {
   return Math.floor(Math.random() * 10 + 1);
 }
 
-// console.log(randData(10));
+console.log(randData(10));
+// console.log(randData(100));
