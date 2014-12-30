@@ -11,7 +11,7 @@ function setupMessageListener(eventName, elem, callback) {
   });
 }
 
-
+//Sampler.
 var element = window.document.body.getElementById("svg");
 var functionName = function (arg) {
   // arg["type"]

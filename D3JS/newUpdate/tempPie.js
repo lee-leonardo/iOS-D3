@@ -47,3 +47,54 @@ arcs.append("svg:text")                               //add a label to each slic
   })
   .attr("text-anchor", "middle")                        //center the text on it's origin
   .text(function(d, i) { return data[i].label; });      //get the label from our original data array
+
+//
+// This is more like what is happening.
+//
+var w = 300,                        //width
+h = 400,                            //height
+r = 100,                            //radius
+color = d3.scale.category20c(),     //builtin range of colors
+data = [{"value":2},
+{"value":0},
+{"value":1},
+{"value":4},
+{"value":3},
+{"value":7},
+{"value":10}
+];
+
+var vis = d3.select("body")
+.append("svg:svg")
+.attr("width", w)
+.attr("height", h)
+.append("svg:g")
+.attr("transform", "translate(" + r + "," + r + ")")
+.data([data]);
+
+var arc = d3.svg.arc()
+.outerRadius(r).innerRadius(r-30);
+
+var pie = d3.layout.pie()
+.value(function(d) { return d.value; });
+
+var arcs = vis.selectAll("g.slice")
+.data(pie)
+.enter()
+.append("svg:g")
+.attr("class", "slice");
+
+arcs.append("svg:path")
+.attr("fill", function(d, i) { return color(i); } )
+.attr("d", arc);
+
+/*
+arcs.append("svg:text")
+.attr("transform", function(d) {
+d.innerRadius = 0;
+d.outerRadius = r;
+return "translate(" + arc.centroid(d) + ")";
+})
+.attr("text-anchor", "middle")
+.text(function(d, i) { return data[i].label; });
+*/

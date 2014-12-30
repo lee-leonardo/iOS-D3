@@ -24,9 +24,7 @@
         top: 10px;
       }
     </style>
-
-    <script src="D3_MODULE.js" charset="utf-8"></script>
-
+    <script src="LISTENER.js" charset="utf-8"></script>
   </head>
 
   <body>
@@ -87,6 +85,7 @@
       //   .attr("text-anchor", "middle")
       //   .text(function (d, i) { return data[i].label; });
 
+//Code for updating, adding after it all works.
 /*
       d3.sellectAll("input").on("change", updatePie);
 
@@ -102,7 +101,9 @@
 
     <script async>
       //This will execute and work well!
-      var demo = D3_DEMO_MODULE;
+      var demo = window.document.D3_DEMO_MODULE;
+      // demo.addListener();
+
     </script>
   </body>
   </html>

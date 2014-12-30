@@ -14,7 +14,7 @@ Leo's Plan:
   3. Updating the SVG will be done at a later point once I have the basic stuff for generating a pie chart done.
 */
 
-var INTERACT_MODULE_D3 = (function () {
+var LISTENER_MODULE = (function () {
 
   var listeners = new Object();
 
@@ -59,5 +59,14 @@ var INTERACT_MODULE_D3 = (function () {
 //
 
 var D3_DEMO_MODULE = (function(module){
+  //This will augment the old module by giving it some extra functions and such.
+  var d3el = window.document.body.getElementById("svg"); //This should grab the svg object in the browser.
 
-})(INTERACT_MODULE_D3);
+  //This adds a listener to the event refresh.
+  // module.addListener("D3_REFRESH", d3el, function(data) {
+    // window.document.
+  // });
+
+  return module;
+
+})(LISTENER_MODULE);
