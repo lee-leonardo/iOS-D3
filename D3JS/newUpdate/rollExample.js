@@ -1,40 +1,26 @@
-function randData(num) {
-  var dataObj = {
-    "1" : 0,
-    "2" : 0,
-    "3" : 0,
-    "4" : 0,
-    "5" : 0,
-    "6" : 0,
-    "7" : 0,
-    "8" : 0,
-    "9" : 0,
-    "10" : 0
-  };
+function createDataStruct(num) {
+  var rng = roll(num);
+  var structure = [];
 
-  var set = roll(num);
-
-  for (var i = 0; i < set.length; i++) {
-    var label = set[i].toString();
-    dataObj[label] += 1;
+  for (var i = 0; i < rng.length; i++) {
+    structure.push({"value":rng[i]});
   }
-
-  return dataObj;
+  return structure;
 }
 
 function roll(num) {
-  var set = [];
+  var set = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
   for (var i = 0; i < num; i++) {
-    set.push(newRoll());
+    var rolledNum = newRoll();
+    set[rolledNum]++;
   }
 
   return set
 }
 
 function newRoll() {
-  return Math.floor(Math.random() * 10 + 1);
+  return Math.floor(Math.random() * 10);
 }
 
-console.log(randData(10));
-// console.log(randData(100));
+console.log(createDataStruct(10));
