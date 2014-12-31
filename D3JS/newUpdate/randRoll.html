@@ -24,13 +24,11 @@
         top: 10px;
       }
     </style>
-    <script src="LISTENER.js" charset="utf-8"></script>
   </head>
-
   <body>
    <script charset='utf-8' async>
-      var width = 960,
-      height = 500,
+      var width = window.innerWidth,
+      height = window.innerHeight,
       radius = Math.min(width, height) / 2;
 
       var color = d3.scale.category10();
@@ -40,7 +38,7 @@
       /*
         Replace this data asap.
       */
-      data = [{"value":2},
+      var data = [{"value":2},
               {"value":0},
               {"value":1},
               {"value":4},
@@ -61,8 +59,8 @@
         .attr("width", width)
         .attr("height", height)
         .append("svg:g")
-        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-        //.data([data]); //To associate data with the object.
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
+        .data([data]); //To associate data with the object.
 
       //Selects all g elements (not available yet.)
       var arcs = svg.selectAll("g.slice")
@@ -97,13 +95,6 @@
           path.attr("d", arc); //Redraw arcs.
         }
 */
-    </script>
-
-    <script async>
-      //This will execute and work well!
-      var demo = window.document.D3_DEMO_MODULE;
-      // demo.addListener();
-
     </script>
   </body>
   </html>
