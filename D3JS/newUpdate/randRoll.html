@@ -84,17 +84,16 @@
       //   .text(function (d, i) { return data[i].label; });
 
 //Code for updating, adding after it all works.
-/*
-      d3.sellectAll("input").on("change", updatePie);
+      // d3.sellectAll("input").on("change", change);
+      svg.addEventListener('D3_iOS_REFRESH', updated); //This should listen in on events dispatched.
 
-        function updatePie() {
-          var value = this.value;
-          clearTimeout(timeout);
-          pie.value(function(d){ return d[value]; }); //change the value
-          path = path.data(pie); //Comput new angles.
-          path.attr("d", arc); //Redraw arcs.
-        }
-*/
+      function updated(value) {
+        svg.data([value]);
+        // pie.value(function(d){ return d.value; }); //change the value
+        path = path.data(pie); //Comput new angles.
+        path.attr("d", arc); //Redraw arcs.
+      }
+
     </script>
   </body>
   </html>
