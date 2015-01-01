@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js" charset="utf-8"></script>
+    <script src="rollExample.js" charset="utf-8"></script>
 
     <style>
       body {
@@ -62,6 +63,9 @@
         .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
         .data([data]); //To associate data with the object.
 
+      //Sets the id of the svg element so that I can use that to grab the correct element using the document.getElementById(id);
+
+
       //Selects all g elements (not available yet.)
       var arcs = svg.selectAll("g.slice")
         .data(pie) //generates pie data.
@@ -85,7 +89,7 @@
 
 //Code for updating, adding after it all works.
       // d3.sellectAll("input").on("change", change);
-      svg.addEventListener('D3_iOS_REFRESH', updated); //This should listen in on events dispatched.
+      svg.addEventListener('D3_iOS_REFRESH', updated()); //This should listen in on events dispatched.
 
       function updated(value) {
         svg.data([value]);

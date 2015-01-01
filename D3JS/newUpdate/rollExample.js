@@ -23,4 +23,4 @@ function newRoll() {
   return Math.floor(Math.random() * 10);
 }
 
-console.log(createDataStruct(10));
+// console.log(createDataStruct(10));

@@ -150,10 +150,12 @@
 #pragma mark - IBAction
 - (IBAction)refreshWebView:(id)sender {
 //    NSLog(@"Reloaded");
-    [_webView evaluateJavaScript:@"window.webkit.messageHandlers.{NAME}.postMessage({body: "" })"
-               completionHandler:^(id object, NSError * error) {
+//    [_webView evaluateJavaScript:@"window.webkit.messageHandlers.{NAME}.postMessage({body: "" })"
+//               completionHandler:^(id object, NSError * error) {
 //        [_webView reload];
-    }];
+//    }];
+    
+    [_webView evaluateJavaScript:@"var event = CustomEvent('D3_iOS_REFRESH', createDataStruct(10)); window.document.getElement" completionHandler:nil];
 }
 
 @end
