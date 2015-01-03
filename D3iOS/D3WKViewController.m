@@ -155,7 +155,7 @@
 //        [_webView reload];
 //    }];
     
-    [_webView evaluateJavaScript:@"var event = CustomEvent('D3_iOS_REFRESH', createDataStruct(10)); window.document.getElement" completionHandler:nil];
+    [_webView evaluateJavaScript:@"fireOffCustomEvent();" completionHandler:nil];
 }
 
 @end

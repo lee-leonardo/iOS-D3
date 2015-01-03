@@ -24,3 +24,10 @@ function newRoll() {
 }
 
 // console.log(createDataStruct(10));
+
+function fireOffCustomEvent() {
+  var event = CustomEvent('D3_iOS_REFRESH');
+  window.document.getElementById('D3_CHART').dispatchEvent(event);
+}
+
+console.log(createDataStruct(10));

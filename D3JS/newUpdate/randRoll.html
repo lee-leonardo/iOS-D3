@@ -4,7 +4,6 @@
     <meta charset='utf-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script src="http://code.jquery.com/jquery-2.1.1.min.js" charset="utf-8"></script>
     <script src="rollExample.js" charset="utf-8"></script>
 
     <style>
@@ -63,16 +62,12 @@
         .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
         .data([data]); //To associate data with the object.
 
-      //Sets the id of the svg element so that I can use that to grab the correct element using the document.getElementById(id);
-
-
       //Selects all g elements (not available yet.)
       var arcs = svg.selectAll("g.slice")
         .data(pie) //generates pie data.
         .enter() //generates elements for each element in the selection.
         .append("svg:g"); //groups to hold each slice?
         //.attr("class", "slice");  //Allows for styling
-
 
       arcs.append("svg:path")
         .attr("fill", function(d, i) { return color(i); })
@@ -88,14 +83,19 @@
       //   .text(function (d, i) { return data[i].label; });
 
 //Code for updating, adding after it all works.
-      // d3.sellectAll("input").on("change", change);
-      svg.addEventListener('D3_iOS_REFRESH', updated()); //This should listen in on events dispatched.
+      // d3.selectAll("input").on("change", change);
 
-      function updated(value) {
-        svg.data([value]);
-        // pie.value(function(d){ return d.value; }); //change the value
-        path = path.data(pie); //Comput new angles.
-        path.attr("d", arc); //Redraw arcs.
+      //This should listen in on events dispatched.
+      // svg.addEventListener('D3_iOS_REFRESH', function(d){ updateSVG(d.value); });
+
+      function updateSVG() {
+        //Not sure if this will work properly...
+        var updatedData = createDataStruct(10);
+        svg.data([updatedData]);
+        pie.value(function (d) { return d.value; });
+        arcs = arcs.data(pie); //Same as path in the example.
+        arcs.attr("d", arc);
+
       }
 
     </script>
