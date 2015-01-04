@@ -29,6 +29,13 @@
 		386719AA1A53561A000978D2 /* sunburst.html in Resources */ = {isa = PBXBuildFile; fileRef = 386719961A53561A000978D2 /* sunburst.html */; };
 		386719AB1A53561A000978D2 /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = 386719981A53561A000978D2 /* test.html */; };
 		386A89121A464AAD00F6D268 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 386A89111A464AAD00F6D268 /* Constants.m */; };
+		387D0BCB1A58CF46006E447F /* d3.js in Resources */ = {isa = PBXBuildFile; fileRef = 387D0BC41A58CF46006E447F /* d3.js */; };
+		387D0BCC1A58CF46006E447F /* newRoll.html in Resources */ = {isa = PBXBuildFile; fileRef = 387D0BC51A58CF46006E447F /* newRoll.html */; };
+		387D0BCD1A58CF46006E447F /* randRoll.html in Resources */ = {isa = PBXBuildFile; fileRef = 387D0BC61A58CF46006E447F /* randRoll.html */; };
+		387D0BCE1A58CF46006E447F /* rollExample.js in Resources */ = {isa = PBXBuildFile; fileRef = 387D0BC71A58CF46006E447F /* rollExample.js */; };
+		387D0BCF1A58CF46006E447F /* rollStyle.css in Resources */ = {isa = PBXBuildFile; fileRef = 387D0BC81A58CF46006E447F /* rollStyle.css */; };
+		387D0BD01A58CF46006E447F /* sampleMessageCreation.js in Resources */ = {isa = PBXBuildFile; fileRef = 387D0BC91A58CF46006E447F /* sampleMessageCreation.js */; };
+		387D0BD11A58CF46006E447F /* tempPie.js in Resources */ = {isa = PBXBuildFile; fileRef = 387D0BCA1A58CF46006E447F /* tempPie.js */; };
 		38BCC0AE1A4575A80018406C /* D3WKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BCC0AD1A4575A80018406C /* D3WKViewController.m */; };
 		38D94C661A439E3400BC3668 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D94C651A439E3400BC3668 /* main.m */; };
 		38D94C691A439E3400BC3668 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D94C681A439E3400BC3668 /* AppDelegate.m */; };
@@ -77,6 +84,13 @@
 		386719981A53561A000978D2 /* test.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
 		386A89101A464AAD00F6D268 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		386A89111A464AAD00F6D268 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		387D0BC41A58CF46006E447F /* d3.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = d3.js; sourceTree = "<group>"; };
+		387D0BC51A58CF46006E447F /* newRoll.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = newRoll.html; sourceTree = "<group>"; };
+		387D0BC61A58CF46006E447F /* randRoll.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = randRoll.html; sourceTree = "<group>"; };
+		387D0BC71A58CF46006E447F /* rollExample.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = rollExample.js; sourceTree = "<group>"; };
+		387D0BC81A58CF46006E447F /* rollStyle.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = rollStyle.css; sourceTree = "<group>"; };
+		387D0BC91A58CF46006E447F /* sampleMessageCreation.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = sampleMessageCreation.js; sourceTree = "<group>"; };
+		387D0BCA1A58CF46006E447F /* tempPie.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = tempPie.js; sourceTree = "<group>"; };
 		38BCC0AC1A4575A80018406C /* D3WKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3WKViewController.h; sourceTree = "<group>"; };
 		38BCC0AD1A4575A80018406C /* D3WKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3WKViewController.m; sourceTree = "<group>"; };
 		38D94C601A439E3400BC3668 /* D3iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = D3iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +144,7 @@
 		3867197F1A53561A000978D2 /* D3JS */ = {
 			isa = PBXGroup;
 			children = (
+				387D0BC31A58CF45006E447F /* roll */,
 				386719801A53561A000978D2 /* barchart */,
 				386719841A53561A000978D2 /* boxplot */,
 				386719881A53561A000978D2 /* LISTENER.js */,
@@ -199,6 +214,20 @@
 				386719981A53561A000978D2 /* test.html */,
 			);
 			path = test;
+			sourceTree = "<group>";
+		};
+		387D0BC31A58CF45006E447F /* roll */ = {
+			isa = PBXGroup;
+			children = (
+				387D0BC41A58CF46006E447F /* d3.js */,
+				387D0BC51A58CF46006E447F /* newRoll.html */,
+				387D0BC61A58CF46006E447F /* randRoll.html */,
+				387D0BC71A58CF46006E447F /* rollExample.js */,
+				387D0BC81A58CF46006E447F /* rollStyle.css */,
+				387D0BC91A58CF46006E447F /* sampleMessageCreation.js */,
+				387D0BCA1A58CF46006E447F /* tempPie.js */,
+			);
+			path = roll;
 			sourceTree = "<group>";
 		};
 		38D94C571A439E3300BC3668 = {
@@ -396,22 +425,29 @@
 				38D94C6F1A439E3400BC3668 /* Main.storyboard in Resources */,
 				386719A91A53561A000978D2 /* sequences.js in Resources */,
 				38239EE31A48E26F0070CE6C /* WebViewJavascriptBridge.js.txt in Resources */,
+				387D0BCF1A58CF46006E447F /* rollStyle.css in Resources */,
 				386719991A53561A000978D2 /* bullet.js in Resources */,
+				387D0BCB1A58CF46006E447F /* d3.js in Resources */,
 				386719A71A53561A000978D2 /* index.html in Resources */,
 				3867199C1A53561A000978D2 /* box.js in Resources */,
+				387D0BD11A58CF46006E447F /* tempPie.js in Resources */,
 				3867199D1A53561A000978D2 /* boxPlots.html in Resources */,
 				38D94C931A43AB4200BC3668 /* d3.min.js in Resources */,
+				387D0BCC1A58CF46006E447F /* newRoll.html in Resources */,
 				3867199F1A53561A000978D2 /* LISTENER.js in Resources */,
 				386719A51A53561A000978D2 /* barchart.js in Resources */,
 				386719A11A53561A000978D2 /* randRoll.html in Resources */,
 				386719A81A53561A000978D2 /* sequences.css in Resources */,
 				386719A61A53561A000978D2 /* basic.css in Resources */,
+				387D0BCE1A58CF46006E447F /* rollExample.js in Resources */,
 				38D94C741A439E3400BC3668 /* LaunchScreen.xib in Resources */,
 				3867199E1A53561A000978D2 /* morley.csv in Resources */,
 				38D94C711A439E3400BC3668 /* Images.xcassets in Resources */,
+				387D0BCD1A58CF46006E447F /* randRoll.html in Resources */,
 				3867199B1A53561A000978D2 /* bullets.json in Resources */,
 				386719AB1A53561A000978D2 /* test.html in Resources */,
 				386719A01A53561A000978D2 /* eventListenerTips.js in Resources */,
+				387D0BD01A58CF46006E447F /* sampleMessageCreation.js in Resources */,
 				386719A21A53561A000978D2 /* rollExample.js in Resources */,
 				386719A31A53561A000978D2 /* sampleMessageCreation.js in Resources */,
 			);
