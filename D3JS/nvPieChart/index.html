@@ -1,0 +1,58 @@
+<!doctype>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="nv.d3.css" rel="stylesheet" type="text/css">
+    <script src="d3.js"></script>
+    <script src="nv.d3.js"></script>
+    <script src="dataGenerator.js"></script>
+    <script>
+      function loadPieChart() {
+        nv.addGraph(function(){
+          var chart = nv.models.pieChart()
+                        .x(function(d) { return d.label; })
+                        .y(function(d) { return d.value; })
+                        .showLabels(true);
+
+          d3.select("#chart svg")
+            .datum(newData()) //This will need to be changed.
+            .transition().duration(350)
+            .call(chart);
+
+          return chart;
+        });
+
+        nv.addGraph(function(){
+          var chart = nv.models.pieChart()
+                        .x(function(d) { return d.label; });
+                        .y(function(d) { return d.value; });
+                        .showLabels(true)
+                        .labelThreshold(0.5)
+                        .labelType("percent")
+                        .donut(true)
+                        .donutRation(0.35);
+          d3.select("#chart svg")
+            .datum(newData())
+            .transition().duration(350)
+            .call(chart);
+
+          return chart;
+        });
+
+        function updateGraph() {
+          var data = DATAG_MOD.newDataSet();
+
+          d3.select("#char svg")
+          .datum(data)
+          .transition().duration(350)
+          .call(chart);
+        }
+
+      }
+    </script>
+  </head>
+  <body onload="loadPieChart()">
+
+  </body>
+</html>
