@@ -1,14 +1,17 @@
-<!doctype>
+<!doctype html>
 <html>
   <head>
     <meta charset='utf-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link href="nv.d3.css" rel="stylesheet" type="text/css">
+    <link href="nv.d3.css" rel="stylesheet">
     <script src="d3.js"></script>
     <script src="nv.d3.js"></script>
     <script src="dataGenerator.js"></script>
     <script>
+    var mod = DATAG_MOD();
+
       function loadPieChart() {
+        //Pie Chart
         nv.addGraph(function(){
           var chart = nv.models.pieChart()
                         .x(function(d) { return d.label; })
@@ -16,43 +19,49 @@
                         .showLabels(true);
 
           d3.select("#chart svg")
-            .datum(newData()) //This will need to be changed.
+            .datum(mod.newDataSet()) //This will need to be changed.
             .transition().duration(350)
             .call(chart);
 
           return chart;
         });
 
+        //Donut Chart
         nv.addGraph(function(){
           var chart = nv.models.pieChart()
-                        .x(function(d) { return d.label; });
-                        .y(function(d) { return d.value; });
+                        .x(function(d) { return d.label; })
+                        .y(function(d) { return d.value; })
                         .showLabels(true)
                         .labelThreshold(0.5)
                         .labelType("percent")
                         .donut(true)
-                        .donutRation(0.35);
-          d3.select("#chart svg")
-            .datum(newData())
+                        .donutRatio(0.35);
+          d3.select("#chart2 svg")
+            .datum(mod.newDataSet())
             .transition().duration(350)
             .call(chart);
 
           return chart;
         });
+      }
 
-        function updateGraph() {
-          var data = DATAG_MOD.newDataSet();
+      //Update the Graph
+      function updateGraph() {
+        var data = mod.newDataSet();
 
-          d3.select("#char svg")
+        d3.select("#chart")
           .datum(data)
-          .transition().duration(350)
-          .call(chart);
-        }
-
+          .transition().duration(350);
+          // .call(chart);
       }
     </script>
   </head>
   <body onload="loadPieChart()">
-
+    <div id="chart">
+      <svg></svg>
+    </div>
+    <div id="chart2">
+      <svg></svg>
+    </div>
   </body>
 </html>

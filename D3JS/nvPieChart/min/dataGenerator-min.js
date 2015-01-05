@@ -1,0 +1,1 @@
+var DATAG_MOD=function(){var e=["One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten"];return{newDataSet:function(){for(var n=e,r=[],a=0;a<n.length;a++){var t={label:n[a],value:Math.floor(100*Math.random())};r.push(t)}return r}}};

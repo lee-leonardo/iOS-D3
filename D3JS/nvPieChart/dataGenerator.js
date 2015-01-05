@@ -1,19 +1,26 @@
-var DATAG_MOD = {
-  "labels" : ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"],
-  "newDataSet" : function() {
-    var labelSet = DATAG_MOD.labels,
-        dataSet = [];
+var DATAG_MOD = (function(){
+  var labels = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"];
 
-    for (var i = 0; i < labelSet.length; i++) {
-      var entry = { "label" : labelSet[i], "value" : Math.floor(Math.random() * 100) };
-      dataSet.push(entry);
+  return {
+    newDataSet : function() {
+      var labelSet = labels,
+      dataSet = [];
+
+      for (var i = 0; i < labelSet.length; i++) {
+        var entry = { "label" : labelSet[i], "value" : Math.floor(Math.random() * 100) };
+        dataSet.push(entry);
+      }
+
+      return dataSet;
     }
+  };
+});
 
-    return dataSet;
-  }
-}
+//Tests the data set. Working well.
+//console.log(DATAG_MOD.newDataSet());
 
-
+/*
+//This is just stuff that I used to help create this. I am thinking about create a simulated roll example at some point, but this will work for the time being.
 
 var labels = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"];
 
@@ -68,3 +75,4 @@ for (entry in struct) {
 console.log(struct);
 return dataSet;
 }
+*/
