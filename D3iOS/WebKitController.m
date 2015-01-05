@@ -65,7 +65,7 @@
 {
     [self setupD3];
     
-    NSString *nv = [NSString stringWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"nv.d3" withExtension:@".js"]encoding:NSUTF8StringEncoding error:NULL];
+    NSString *nv = [NSString stringWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"nv.d3.min" withExtension:@".js"]encoding:NSUTF8StringEncoding error:NULL];
     
     WKUserScript *nvScript = [[WKUserScript alloc] initWithSource:nv injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:YES];
     
