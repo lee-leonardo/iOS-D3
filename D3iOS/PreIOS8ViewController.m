@@ -14,7 +14,7 @@
 
 @interface PreIOS8ViewController ()
 
-@property (nonatomic, strong) UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 
@@ -29,13 +29,11 @@
 {
     [super viewWillAppear:animated];
     [self setupWebView]; //This version has a longer (much longer! loading time).
-    [self.view addSubview:_webView];
 }
 
 #pragma mark - Set Up
 -(void)setupWebView
 {
-    _webView = [[UIWebView alloc] initWithFrame:CGRectMake(16, 44, self.view.frame.size.width, self.view.frame.size.height)];
     _webView.delegate = self;
     //    _webView.suppressesIncrementalRendering = NO; //This will be something one should change so that SVGs do not kill the processor.
     
@@ -43,10 +41,12 @@
 //    Same idea as this, however this will be replaced directly by the html page. No linkage to the D3.
 //    NSString *d3Lib = [NSString stringWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"d3.min" withExtension:@".js"] encoding:NSUTF8StringEncoding error:NULL];
     
-    NSString *index = [[NSBundle mainBundle] pathForResource:@"simpleExample" ofType:@"html"];
+    NSString *index = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"];
+    
     NSURL *startPage = [NSURL fileURLWithPath:index];
     NSString *page = [NSString stringWithContentsOfURL:startPage encoding:NSUTF8StringEncoding error:nil];
-    [_webView loadHTMLString:page baseURL:startPage];
+    [_webView loadHTMLString:page baseURL:[[NSBundle mainBundle] resourceURL]];
+//    [_webView loadHTMLString:page baseURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] resourcePath]]];
     
     /*
         An alternate way:
@@ -66,6 +66,7 @@
     
     NSString *function = [NSString stringWithFormat:@"%@(%@)", functionName, arguments];
     NSString *result = [_webView stringByEvaluatingJavaScriptFromString:function];
+    NSLog(@"%@", result);
 }
 
 #pragma mark Listener
@@ -87,6 +88,12 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
 {
     //Need to implement this.
     return YES;
+}
+
+#pragma mark - IBAction
+- (IBAction)refreshAction:(id)sender {
+    //This refreshes the webpage.
+    [self executeJavascriptScriptFunction:@"updateGraph" withArguments:@""];
 }
 
 @end

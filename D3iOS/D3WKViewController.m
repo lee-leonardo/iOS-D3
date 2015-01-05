@@ -40,6 +40,7 @@
                                                       //From here add these as part of the arguments for the script we are sending this to.
                                                       NSString *name = note.name;
                                                       NSDictionary *jsObject = note.userInfo;
+                                                      NSLog(@"Name: %@\njsObject: %@", name, jsObject);
                                                       
                                                       [_webView evaluateJavaScript:@"NEED SOMETHING HERE"
                                                                  completionHandler:^(id object, NSError *error) {
