@@ -11,6 +11,10 @@
 		38239EE41A48E26F0070CE6C /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 38239EE11A48E26F0070CE6C /* WebViewJavascriptBridge.m */; };
 		386A89121A464AAD00F6D268 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 386A89111A464AAD00F6D268 /* Constants.m */; };
 		38BCC0AE1A4575A80018406C /* D3WKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BCC0AD1A4575A80018406C /* D3WKViewController.m */; };
+		38BD7B591A5A46F9004BB4F6 /* nv.d3.css in Resources */ = {isa = PBXBuildFile; fileRef = 38BD7B581A5A46F9004BB4F6 /* nv.d3.css */; };
+		38BD7B5B1A5A4706004BB4F6 /* nv.d3.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 38BD7B5A1A5A4706004BB4F6 /* nv.d3.min.js */; };
+		38BD7B5E1A5A4723004BB4F6 /* dataGenerator.js in Resources */ = {isa = PBXBuildFile; fileRef = 38BD7B5C1A5A4723004BB4F6 /* dataGenerator.js */; };
+		38BD7B5F1A5A4723004BB4F6 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 38BD7B5D1A5A4723004BB4F6 /* index.html */; };
 		38D94C661A439E3400BC3668 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D94C651A439E3400BC3668 /* main.m */; };
 		38D94C691A439E3400BC3668 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D94C681A439E3400BC3668 /* AppDelegate.m */; };
 		38D94C6C1A439E3400BC3668 /* PreIOS8ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D94C6B1A439E3400BC3668 /* PreIOS8ViewController.m */; };
@@ -41,6 +45,10 @@
 		386A89111A464AAD00F6D268 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		38BCC0AC1A4575A80018406C /* D3WKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3WKViewController.h; sourceTree = "<group>"; };
 		38BCC0AD1A4575A80018406C /* D3WKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3WKViewController.m; sourceTree = "<group>"; };
+		38BD7B581A5A46F9004BB4F6 /* nv.d3.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = nv.d3.css; path = D3JS/nv.d3.css; sourceTree = SOURCE_ROOT; };
+		38BD7B5A1A5A4706004BB4F6 /* nv.d3.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = nv.d3.min.js; path = D3JS/nv.d3.min.js; sourceTree = SOURCE_ROOT; };
+		38BD7B5C1A5A4723004BB4F6 /* dataGenerator.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = dataGenerator.js; path = D3JS/nvPieChart/dataGenerator.js; sourceTree = SOURCE_ROOT; };
+		38BD7B5D1A5A4723004BB4F6 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = D3JS/nvPieChart/index.html; sourceTree = SOURCE_ROOT; };
 		38D94C601A439E3400BC3668 /* D3iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = D3iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38D94C641A439E3400BC3668 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38D94C651A439E3400BC3668 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -129,6 +137,10 @@
 			isa = PBXGroup;
 			children = (
 				38D94C921A43AB4200BC3668 /* d3.min.js */,
+				38BD7B581A5A46F9004BB4F6 /* nv.d3.css */,
+				38BD7B5A1A5A4706004BB4F6 /* nv.d3.min.js */,
+				38BD7B5C1A5A4723004BB4F6 /* dataGenerator.js */,
+				38BD7B5D1A5A4723004BB4F6 /* index.html */,
 				38239EE51A48E2720070CE6C /* JavsScriptBridge */,
 				38D94C641A439E3400BC3668 /* Info.plist */,
 				38D94C651A439E3400BC3668 /* main.m */,
@@ -280,8 +292,12 @@
 				38D94C6F1A439E3400BC3668 /* Main.storyboard in Resources */,
 				38239EE31A48E26F0070CE6C /* WebViewJavascriptBridge.js.txt in Resources */,
 				38D94C931A43AB4200BC3668 /* d3.min.js in Resources */,
+				38BD7B5F1A5A4723004BB4F6 /* index.html in Resources */,
+				38BD7B591A5A46F9004BB4F6 /* nv.d3.css in Resources */,
+				38BD7B5E1A5A4723004BB4F6 /* dataGenerator.js in Resources */,
 				38D94C741A439E3400BC3668 /* LaunchScreen.xib in Resources */,
 				38D94C711A439E3400BC3668 /* Images.xcassets in Resources */,
+				38BD7B5B1A5A4706004BB4F6 /* nv.d3.min.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

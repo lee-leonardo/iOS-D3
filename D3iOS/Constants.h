@@ -26,6 +26,10 @@ NSString * const EXP_D3_BOX_PLOTS;
 NSString * const EXP_D3_SUNBURST;
 NSString * const EXP_D3_PIE_ROLL;
 
+
+NSString * const EXP_D3_PIE;
+
+
 @interface Constants : NSObject
 
 @end

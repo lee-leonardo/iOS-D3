@@ -90,7 +90,7 @@
  */
    
     //This is found in the D3Samples folder in the Supporting files.
-    NSString *indexPath = [[NSBundle mainBundle] pathForResource:EXP_D3_PIE_ROLL ofType:@"html"];
+    NSString *indexPath = [[NSBundle mainBundle] pathForResource:EXP_D3_PIE ofType:@"html"];
     NSURL *indexURL = [NSURL fileURLWithPath:indexPath];
     NSString *indexFile = [NSString stringWithContentsOfURL:indexURL encoding:NSUTF8StringEncoding error:nil];
 //    NSLog(@"indexURL: %@", indexURL);
@@ -155,7 +155,8 @@
 //        [_webView reload];
 //    }];
     
-    [_webView evaluateJavaScript:@"fireOffCustomEvent();" completionHandler:nil];
+//    [_webView evaluateJavaScript:@"fireOffCustomEvent();" completionHandler:nil];
+    [_webView evaluateJavaScript:@"updateGraph()" completionHandler:nil];
 }
 
 @end

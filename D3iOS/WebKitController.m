@@ -65,6 +65,16 @@
 {
     [self setupD3];
     
+    NSString *nv = [NSString stringWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"nv.d3" withExtension:@".js"]encoding:NSUTF8StringEncoding error:NULL];
+    
+    WKUserScript *nvScript = [[WKUserScript alloc] initWithSource:nv injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:YES];
+    
+    [self addUserScriptToContentController:nvScript];
+    
+    NSString *gen = [NSString stringWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"dataGenerator" withExtension:@".js"] encoding:NSUTF8StringEncoding error:NULL];
+    WKUserScript *genScript = [[WKUserScript alloc] initWithSource:gen injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:YES];
+    [self addUserScriptToContentController:genScript];
+    
 //    WKUserScript *sampleScript = [WKUserScript alloc] initWithSource:<#(NSString *)#> injectionTime:<#(WKUserScriptInjectionTime)#> forMainFrameOnly:<#(BOOL)#>
 //    [self addUserScriptsToContentController:<#(WKUserScript *)#>];
     

@@ -20,11 +20,7 @@ NSString *const D3_NOTE_REROLL = @"D3_REROLL";
 NSString *const JS_UPDATE = @"updateJSData";
 
 //D3 Examples
-NSString * const EXP_D3_SIMPLE = @"simpleExample";
-NSString * const EXP_D3_BULLET_CHARTS = @"bulletCharts";
-NSString * const EXP_D3_BOX_PLOTS = @"boxPlots";
-NSString * const EXP_D3_SUNBURST = @"sunburst";
-NSString * const EXP_D3_PIE_ROLL = @"randRoll";
+NSString * const EXP_D3_PIE = @"index";
 
 @implementation Constants
 
